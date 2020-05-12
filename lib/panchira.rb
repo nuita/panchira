@@ -9,6 +9,7 @@ require 'panchira/version'
 require 'panchira/resolvers/resolver'
 require 'panchira/resolvers/dlsite_resolver'
 require 'panchira/resolvers/komiflo_resolver'
+require 'panchira/resolvers/melonbooks_resolver'
 # Main Panchira code goes here.
 module Panchira
   class << self
