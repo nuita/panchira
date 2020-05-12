@@ -12,7 +12,7 @@ This gem is derived from the [Nuita](https://github.com/nuita/nuita) project.
 
 **Please use this gem with appropriate censoring and age-restricting. Never violate local laws and copyrights.**
 
-If you are running one of the websites we cover and feel negative about it, please contact to the community or the author([@kypkyp](https://github.com/kypkyp)). 
+If you are running one of the websites we cover and feel negative about it, please contact the community or the author([@kypkyp](https://github.com/kypkyp)). 
 
 ## Installation
 
