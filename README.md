@@ -1,8 +1,8 @@
 # Panchira
 
-Due to some legal or ethical issues, most hentai and NSFW platforms don't clarify their content on meta tags. As a result, most hentai platforms would be rendered poorly on the card previews on social media.
+Due to some legal or ethical issues, most hentai and NSFW platforms don't clarify their content on meta tags. As a result, most hentai platforms is rendered poorly on the card previews on social media.
 
-To solve this issue, Panchira is made to parse correct and uncensored metadata from such web platforms. 
+To solve this issue, Panchira is made to parse correct and uncensored metadata from such web platforms (at this time we cover **DLSite, Komiflo, Melonbooks, Nijie and Pixiv**).
 
 If you need card previews of hentai on your web application, but can't get them with simply parsing metatags, then it is time for Panchira.
 
