@@ -3,10 +3,12 @@
 require 'nokogiri'
 require 'open-uri'
 require 'fastimage'
+require 'json'
 
 require 'panchira/version'
 require 'panchira/resolvers/resolver'
 require 'panchira/resolvers/dlsite_resolver'
+require 'panchira/resolvers/komiflo_resolver'
 # Main Panchira code goes here.
 module Panchira
   class << self
