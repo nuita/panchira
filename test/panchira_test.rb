@@ -76,3 +76,22 @@ class PanchiraTest < Minitest::Test
     assert_equal 1876, attributes[:image][:height]
   end
 end
+
+
+def test_fetch_melonbooks_correctly
+  url = 'https://www.melonbooks.co.jp/detail/detail.php?product_id=319663'
+
+  @link = Link.fetch_from(url)
+  assert_match 'https://www.melonbooks.co.jp/detail/detail.php?product_id=319663&adult_view=1', @link.url
+  assert_match 'めちゃシコごちうさアソート', @link.title
+  assert_match 'image=212001143963.jpg', @link.image
+  assert_no_match 'c=1', @link.image
+  assert_match 'めちゃシコシリーズ', @link.description
+
+  # Page structure in melonbooks changes if there is a review from staff.
+  url = 'https://www.melonbooks.co.jp/detail/detail.php?product_id=242938'
+  @link = Link.fetch_from(url)
+
+  assert_match 'ぬめぬめ', @link.title
+  assert_match '諏訪子様にショタがいじめられる話です。', @link.description #かわいそう…
+end
