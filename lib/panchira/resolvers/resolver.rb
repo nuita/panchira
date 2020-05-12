@@ -52,10 +52,14 @@ module Panchira
 
     def parse_image
       image = {}
-      image[:url] = @page.css('//meta[property="og:image"]/@content').first.to_s
+      image[:url] = parse_image_url
       image[:width], image[:height] = FastImage.size(image[:url])
 
       image
+    end
+
+    def parse_image_url
+      @page.css('//meta[property="og:image"]/@content').first.to_s
     end
   end
 end
