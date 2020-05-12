@@ -1,8 +1,18 @@
 # Panchira
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/panchira`. To experiment with that code, run `bin/console` for an interactive prompt.
+Due to some legal or ethical issues, most hentai and NSFW platforms don't clarify their content on meta tags. As a result, most hentai platforms would be rendered poorly on the card previews on social media.
 
-TODO: Delete this and the text above, and describe your gem
+To solve this issue, Panchira is made to parse correct and not-censored metadata from such web platforms. 
+
+If you need card previews of hentai on your web application, but can't get them with simply parsing metatags, then it is time for Panchira.
+
+This gem is derived from the [Nuita](https://github.com/nuita/nuita) project.
+
+## Caution
+
+**Please use this gem with appropriate censoring and age-restricting. Never violate local laws and copyrights.**
+
+If you are running one of the websites we cover and feel negative about it, please contact to the community or the author([@kypkyp](https://github.com/kypkyp)). 
 
 ## Installation
 
@@ -22,7 +32,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+> Panchira.fetch(“https://www.pixiv.net/artworks/61711172”)
+
+=> {:canonical_url=>“https://pixiv.net/member_illust.php?mode=medium&illust_id=61711172”, :title=>“#輿水幸子 すずしい顔で締め切りを破る幸子 - むらためのイラスト - pixiv”, :description=>“(UTF16の)Pietで実行すると「すずしい」と出力する幸子(5色+白Pietカラーゴルフ)。解説記事は http://chy72.hatenablog.com/entry/2016/12/24/1”, :image=>{:url=>“https://pixiv.cat/61711172.jpg”, :width=>810, :height=>500}}
+```
+
+Panchira is in beta at this time and doesn't have stable API documentation yet.
 
 ## Development
 
@@ -32,7 +48,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/panchira.
+Bug reports and pull requests are welcome on GitHub at https://github.com/nuita/panchira.
 
 ## License
 
