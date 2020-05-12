@@ -6,6 +6,7 @@ require 'fastimage'
 
 require 'panchira/version'
 require 'panchira/resolvers/resolver'
+require 'panchira/resolvers/dlsite_resolver'
 # Main Panchira code goes here.
 module Panchira
   class << self
