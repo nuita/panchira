@@ -11,6 +11,8 @@ require 'panchira/resolvers/dlsite_resolver'
 require 'panchira/resolvers/komiflo_resolver'
 require 'panchira/resolvers/melonbooks_resolver'
 require 'panchira/resolvers/nijie_resolver'
+require 'panchira/resolvers/pixiv_resolver'
+
 # Main Panchira code goes here.
 module Panchira
   class << self
