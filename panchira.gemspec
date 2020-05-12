@@ -8,16 +8,17 @@ Gem::Specification.new do |spec|
   spec.authors       = ["kyp"]
   spec.email         = ["kyp@kmc.gr.jp"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "A parser for hentai websites"
+  spec.description   = <<-TEXT
+    Panchira allows you to parse attributes of hentais on some web platforms, such as Pixiv and DLSite.
+    If you need card previews on hentai but can't get it with simply parsing metatags, then it is time for Panchira.
+  TEXT
+  spec.homepage      = "https://github.com/nuita/panchira"
   spec.license       = "MIT"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+  spec.metadata["source_code_uri"] = "https://github.com/nuita/panchira"
+  spec.metadata["changelog_uri"] = "https://github.com/nuita/panchira/blob/master/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
