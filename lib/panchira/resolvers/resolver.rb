@@ -7,16 +7,18 @@ module Panchira
   class Resolver
     def initialize(url)
       @url = url
-
-      raw_page = URI.parse(url).read
-      charset = raw_page.charset
-      @page = Nokogiri::HTML.parse(raw_page, url, charset)
     end
 
     def fetch
       attributes = {}
 
+      @page = fetch_page(@url)
       attributes[:canonical_url] = parse_canonical_url
+
+      if @url != attributes[:canonical_url]
+        @page = fetch_page(attributes[:canonical_url])
+      end
+
       attributes[:title] = parse_title
       attributes[:description] = parse_description
       attributes[:image] = parse_image
@@ -25,6 +27,12 @@ module Panchira
     end
 
     private
+
+    def fetch_page(url)
+      raw_page = URI.parse(url).read
+      charset = raw_page.charset
+      Nokogiri::HTML.parse(raw_page, url, charset)
+    end
 
     def parse_canonical_url
       if (canonical_url = @page.css('//link[rel="canonical"]/@href')).any?
