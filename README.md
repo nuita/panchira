@@ -1,3 +1,6 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.org/nuita/panchira.svg?branch=master)](https://travis-ci.org/nuita/panchira.svg?branch=master)
+
 # Panchira
 
 Due to some legal or ethical issues, most hentai and NSFW platforms don't clarify their content on meta tags. As a result, most hentai platforms are rendered poorly on the card previews on social media.
