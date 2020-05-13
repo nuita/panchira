@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    panchira (0.1.0)
+    panchira (0.1.1)
       fastimage (~> 2.1.7)
       nokogiri (~> 1.10.9)
 

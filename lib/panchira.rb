@@ -5,13 +5,13 @@ require 'open-uri'
 require 'fastimage'
 require 'json'
 
-require 'panchira/version'
-require 'panchira/resolvers/resolver'
-require 'panchira/resolvers/dlsite_resolver'
-require 'panchira/resolvers/komiflo_resolver'
-require 'panchira/resolvers/melonbooks_resolver'
-require 'panchira/resolvers/nijie_resolver'
-require 'panchira/resolvers/pixiv_resolver'
+require_relative 'panchira/version'
+require_relative 'panchira/resolvers/resolver'
+require_relative 'panchira/resolvers/dlsite_resolver'
+require_relative 'panchira/resolvers/komiflo_resolver'
+require_relative 'panchira/resolvers/melonbooks_resolver'
+require_relative 'panchira/resolvers/nijie_resolver'
+require_relative 'panchira/resolvers/pixiv_resolver'
 
 # Main Panchira code goes here.
 module Panchira

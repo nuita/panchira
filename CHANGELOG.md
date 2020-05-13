@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## 0.1.0 - 2020-05-13
+## 0.1.1 - 2020-05-13
+### Fixed
+- Fix serious requirement issue and make this gem at least executable.
+
+## 0.1.0 - 2020-05-13 [YANKED]
 ### Added
 - Released Panchira gem. At this time we can parse only 5 websites.
 
