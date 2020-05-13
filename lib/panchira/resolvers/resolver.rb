@@ -5,6 +5,8 @@
 # and is inherited by the other resolvers.
 module Panchira
   class Resolver
+    USER_AGENT = "Mozilla/5.0 (compatible; Panchira/#{VERSION}; +https://github.com/nuita/panchira)"
+
     def initialize(url)
       @url = url
     end
@@ -29,7 +31,7 @@ module Panchira
     private
 
     def fetch_page(url)
-      raw_page = URI.parse(url).read
+      raw_page = URI.parse(url).read("user-agent" => USER_AGENT)
       charset = raw_page.charset
       Nokogiri::HTML.parse(raw_page, url, charset)
     end
