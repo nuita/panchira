@@ -12,6 +12,7 @@ require_relative 'panchira/resolvers/komiflo_resolver'
 require_relative 'panchira/resolvers/melonbooks_resolver'
 require_relative 'panchira/resolvers/nijie_resolver'
 require_relative 'panchira/resolvers/pixiv_resolver'
+require_relative 'panchira/resolvers/narou_resolver'
 
 # Main Panchira code goes here.
 module Panchira
@@ -37,6 +38,8 @@ module Panchira
         Panchira::NijieResolver
       when /dlsite/
         Panchira::DlsiteResolver
+      when %r{novel18\.syosetu\.com/}
+        Panchira::NarouResolver
       else
         Panchira::Resolver
       end
