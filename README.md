@@ -37,9 +37,9 @@ Or install it yourself as:
 ## Usage
 
 ```
-> Panchira.fetch(“https://www.pixiv.net/artworks/61711172”)
+> Panchira.fetch("https://www.pixiv.net/artworks/61711172")
 
-=> {:canonical_url=>“https://pixiv.net/member_illust.php?mode=medium&illust_id=61711172”, :title=>“#輿水幸子 すずしい顔で締め切りを破る幸子 - むらためのイラスト - pixiv”, :description=>“(UTF16の)Pietで実行すると「すずしい」と出力する幸子(5色+白Pietカラーゴルフ)。解説記事は http://chy72.hatenablog.com/entry/2016/12/24/1”, :image=>{:url=>“https://pixiv.cat/61711172.jpg”, :width=>810, :height=>500}}
+=> {:canonical_url=>"https://pixiv.net/member_illust.php?mode=medium&illust_id=61711172", :title=>"#輿水幸子 すずしい顔で締め切りを破る幸子 - むらためのイラスト - pixiv", :description=>"(UTF16の)Pietで実行すると「すずしい」と出力する幸子(5色+白Pietカラーゴルフ)。解説記事は http://chy72.hatenablog.com/entry/2016/12/24/1", :image=>{:url=>"https://pixiv.cat/61711172.jpg", :width=>810, :height=>500}}
 ```
 
 Panchira is in beta at this time and doesn't have stable API documentation yet.
