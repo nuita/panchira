@@ -1,5 +1,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/nuita/panchira.svg?branch=master)](https://travis-ci.org/nuita/panchira.svg?branch=master)
+[![Gem Version](https://badge.fury.io/rb/panchira.svg)](https://badge.fury.io/rb/panchira)
 
 # Panchira
 
