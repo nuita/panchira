@@ -8,8 +8,8 @@ module Panchira
       @url = url
 
       @id = url.slice(%r{komiflo\.com(?:/#!)?/comics/(\d+)}, 1)
-      json_uri = URI.parse("https://api.komiflo.com/content/id/#{@id}")
-      @json = JSON.parse(Net::HTTP.get(json_uri))
+      raw_json = URI.parse("https://api.komiflo.com/content/id/#{@id}").read('User-Agent' => USER_AGENT)
+      @json = JSON.parse(raw_json)
     end
 
     private
