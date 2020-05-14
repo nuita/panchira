@@ -31,7 +31,7 @@ module Panchira
     private
 
     def fetch_page(url)
-      raw_page = URI.parse(url).read("user-agent" => USER_AGENT)
+      raw_page = URI.parse(url).read('User-Agent' => USER_AGENT)
       charset = raw_page.charset
       Nokogiri::HTML.parse(raw_page, url, charset)
     end
