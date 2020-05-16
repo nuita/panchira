@@ -2,10 +2,12 @@
 
 module Panchira
   class MelonbooksResolver < Resolver
+    URL_REGEXP = %r{melonbooks.co.jp/detail/detail.php\?product_id=(\d+)}.freeze
+
     private
 
     def parse_canonical_url
-      product_id = @url.slice(%r{melonbooks.co.jp/detail/detail.php\?product_id=(\d+)}, 1)
+      product_id = @url.slice(URL_REGEXP, 1)
       'https://www.melonbooks.co.jp/detail/detail.php?product_id=' + product_id + '&adult_view=1'
     end
 

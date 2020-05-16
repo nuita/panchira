@@ -2,6 +2,8 @@
 
 module Panchira
   class DlsiteResolver < Resolver
+    URL_REGEXP = /dlsite/.freeze
+
     private
 
     def parse_image_url

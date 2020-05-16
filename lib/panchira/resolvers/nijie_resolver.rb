@@ -2,6 +2,7 @@
 
 module Panchira
   class NijieResolver < Resolver
+    URL_REGEXP = /nijie.*view.*id=\d+/.freeze
 
     private
 
