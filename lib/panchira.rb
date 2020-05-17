@@ -7,12 +7,10 @@ require 'json'
 
 require_relative 'panchira/version'
 require_relative 'panchira/resolvers/resolver'
-require_relative 'panchira/resolvers/dlsite_resolver'
-require_relative 'panchira/resolvers/komiflo_resolver'
-require_relative 'panchira/resolvers/melonbooks_resolver'
-require_relative 'panchira/resolvers/nijie_resolver'
-require_relative 'panchira/resolvers/pixiv_resolver'
-require_relative 'panchira/resolvers/narou_resolver'
+require_relative 'panchira/extensions'
+
+project_root = File.dirname(File.absolute_path(__FILE__))
+Dir.glob(project_root + '/panchira/resolvers/*_resolver.rb').sort.each { |file| require file }
 
 # Main Panchira code goes here.
 module Panchira
@@ -27,22 +25,11 @@ module Panchira
     private
 
     def select_resolver(url)
-      case url
-      when %r{komiflo\.com(?:/#!)?/comics/(\d+)}
-        Panchira::KomifloResolver
-      when %r{melonbooks.co.jp/detail/detail.php\?product_id=(\d+)}
-        Panchira::MelonbooksResolver
-      when %r{pixiv\.net/(member_illust.php?.*illust_id=|artworks/)(\d+)}
-        Panchira::PixivResolver
-      when /nijie.*view.*id=\d+/
-        Panchira::NijieResolver
-      when /dlsite/
-        Panchira::DlsiteResolver
-      when %r{novel18\.syosetu\.com/}
-        Panchira::NarouResolver
-      else
-        Panchira::Resolver
+      Panchira::Extensions.resolvers.each do |resolver|
+        return resolver if url =~ resolver::URL_REGEXP
       end
+
+      Panchira::Resolver
     end
   end
 end
