@@ -10,4 +10,6 @@ module Panchira
       @page.css('//meta[property="og:image"]/@content').first.to_s.sub(/sam/, 'main')
     end
   end
+
+  ::Panchira::Extensions.register_resolver(Panchira::DlsiteResolver)
 end

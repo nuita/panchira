@@ -15,4 +15,6 @@ module Panchira
       Nokogiri::HTML.parse(res.body, uri)
     end
   end
+
+  ::Panchira::Extensions.register_resolver(Panchira::NarouResolver)
 end

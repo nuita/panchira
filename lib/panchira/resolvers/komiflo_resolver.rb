@@ -38,4 +38,6 @@ module Panchira
       'https://komiflo.com/comics/' + id
     end
   end
+
+  ::Panchira::Extensions.register_resolver(Panchira::KomifloResolver)
 end

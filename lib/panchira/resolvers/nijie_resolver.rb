@@ -25,4 +25,6 @@ module Panchira
       end
     end
   end
+
+  ::Panchira::Extensions.register_resolver(Panchira::NijieResolver)
 end

@@ -28,4 +28,6 @@ module Panchira
       @page.css('//meta[property="og:image"]/@content').first.to_s
     end
   end
+
+  ::Panchira::Extensions.register_resolver(Panchira::PixivResolver)
 end

@@ -26,4 +26,6 @@ module Panchira
       @page.css('//meta[property="og:image"]/@content').first.to_s.sub(/&c=1/, '')
     end
   end
+
+  ::Panchira::Extensions.register_resolver(Panchira::MelonbooksResolver)
 end
