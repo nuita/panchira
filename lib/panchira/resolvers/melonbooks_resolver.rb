@@ -27,5 +27,5 @@ module Panchira
     end
   end
 
-  ::Panchira::Extensions.register_resolver(Panchira::MelonbooksResolver)
+  ::Panchira::Extensions.register(Panchira::MelonbooksResolver)
 end

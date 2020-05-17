@@ -6,7 +6,7 @@ module Panchira
 
     class << self
       # Register a resolver class which extends Panchira::Resolver.
-      def register_resolver(resolver)
+      def register(resolver)
         @resolvers.push(resolver) unless @resolvers.include?(resolver)
       end
 

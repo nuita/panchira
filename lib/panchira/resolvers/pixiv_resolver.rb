@@ -29,5 +29,5 @@ module Panchira
     end
   end
 
-  ::Panchira::Extensions.register_resolver(Panchira::PixivResolver)
+  ::Panchira::Extensions.register(Panchira::PixivResolver)
 end

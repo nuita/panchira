@@ -16,5 +16,5 @@ module Panchira
     end
   end
 
-  ::Panchira::Extensions.register_resolver(Panchira::NarouResolver)
+  ::Panchira::Extensions.register(Panchira::NarouResolver)
 end

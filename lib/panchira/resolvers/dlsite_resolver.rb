@@ -11,5 +11,5 @@ module Panchira
     end
   end
 
-  ::Panchira::Extensions.register_resolver(Panchira::DlsiteResolver)
+  ::Panchira::Extensions.register(Panchira::DlsiteResolver)
 end

@@ -39,5 +39,5 @@ module Panchira
     end
   end
 
-  ::Panchira::Extensions.register_resolver(Panchira::KomifloResolver)
+  ::Panchira::Extensions.register(Panchira::KomifloResolver)
 end
