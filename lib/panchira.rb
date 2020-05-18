@@ -26,7 +26,7 @@ module Panchira
 
     def select_resolver(url)
       Panchira::Extensions.resolvers.each do |resolver|
-        return resolver if url =~ resolver::URL_REGEXP
+        return resolver if resolver.applicable?(url)
       end
 
       Panchira::Resolver

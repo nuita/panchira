@@ -32,6 +32,13 @@ module Panchira
       attributes
     end
 
+    class << self
+      # Tell whether the url is applicable for this resolver.
+      def applicable?(url)
+        url =~ self::URL_REGEXP
+      end
+    end
+
     private
 
     def fetch_page(url)
