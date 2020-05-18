@@ -5,6 +5,10 @@
 # and is inherited by the other resolvers.
 module Panchira
   class Resolver
+    # The URL pattern that this resolver tries to resolve.
+    # Should be redefined in subclasses.
+    URL_REGEXP = URI::DEFAULT_PARSER.make_regexp
+
     USER_AGENT = "Mozilla/5.0 (compatible; Panchira/#{VERSION}; +https://github.com/nuita/panchira)"
 
     def initialize(url)
@@ -26,6 +30,13 @@ module Panchira
       attributes[:image] = parse_image
 
       attributes
+    end
+
+    class << self
+      # Tell whether the url is applicable for this resolver.
+      def applicable?(url)
+        url =~ self::URL_REGEXP
+      end
     end
 
     private

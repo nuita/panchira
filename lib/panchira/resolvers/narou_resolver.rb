@@ -4,6 +4,8 @@ require 'net/https'
 
 module Panchira
   class NarouResolver < Resolver
+    URL_REGEXP = %r{novel18\.syosetu\.com/}.freeze
+
     def fetch_page(uri)
       u = URI.parse(uri)
       http = Net::HTTP.new(u.host, u.port)
@@ -13,4 +15,6 @@ module Panchira
       Nokogiri::HTML.parse(res.body, uri)
     end
   end
+
+  ::Panchira::Extensions.register(Panchira::NarouResolver)
 end

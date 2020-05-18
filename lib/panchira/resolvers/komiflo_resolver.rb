@@ -4,10 +4,12 @@ module Panchira
   # KomifloResolver resolves Komiflo.
   # Komiflo has its API server, so we can utilize it.
   class KomifloResolver < Resolver
+    URL_REGEXP = %r{komiflo\.com(?:/#!)?/comics/(\d+)}.freeze
+
     def initialize(url)
       @url = url
 
-      @id = url.slice(%r{komiflo\.com(?:/#!)?/comics/(\d+)}, 1)
+      @id = url.slice(URL_REGEXP, 1)
       raw_json = URI.parse("https://api.komiflo.com/content/id/#{@id}").read('User-Agent' => USER_AGENT)
       @json = JSON.parse(raw_json)
     end
@@ -36,4 +38,6 @@ module Panchira
       'https://komiflo.com/comics/' + id
     end
   end
+
+  ::Panchira::Extensions.register(Panchira::KomifloResolver)
 end

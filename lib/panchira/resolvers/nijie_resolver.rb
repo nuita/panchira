@@ -2,6 +2,7 @@
 
 module Panchira
   class NijieResolver < Resolver
+    URL_REGEXP = /nijie.*view.*id=\d+/.freeze
 
     private
 
@@ -24,4 +25,6 @@ module Panchira
       end
     end
   end
+
+  ::Panchira::Extensions.register(Panchira::NijieResolver)
 end
