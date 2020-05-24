@@ -16,20 +16,18 @@ module Panchira
     end
 
     def fetch
-      attributes = {}
+      result = PanchiraResult.new
 
       @page = fetch_page(@url)
-      attributes[:canonical_url] = parse_canonical_url
+      result.canonical_url = parse_canonical_url
 
-      if @url != attributes[:canonical_url]
-        @page = fetch_page(attributes[:canonical_url])
-      end
+      @page = fetch_page(result.canonical_url) if @url != result.canonical_url
 
-      attributes[:title] = parse_title
-      attributes[:description] = parse_description
-      attributes[:image] = parse_image
+      result.title = parse_title
+      result.description = parse_description
+      result.image = parse_image
 
-      attributes
+      result
     end
 
     class << self

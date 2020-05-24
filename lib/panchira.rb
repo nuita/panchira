@@ -16,7 +16,7 @@ Dir.glob(project_root + '/panchira/resolvers/*_resolver.rb').sort.each { |file| 
 # Main Panchira code goes here.
 module Panchira
   class << self
-    # Fetch the given URL and returns a hash that contains attributes of hentai.
+    # Fetch the given URL and returns a PanchiraResult.
     def fetch(url)
       resolver = select_resolver(url)
 
