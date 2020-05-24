@@ -70,9 +70,9 @@ module Panchira
     end
 
     def parse_image
-      image = {}
-      image[:url] = parse_image_url
-      image[:width], image[:height] = FastImage.size(image[:url])
+      image = PanchiraImage.new
+      image.url = parse_image_url
+      image.width, image.height = FastImage.size(image.url)
 
       image
     end
