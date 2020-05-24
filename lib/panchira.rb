@@ -6,6 +6,7 @@ require 'fastimage'
 require 'json'
 
 require_relative 'panchira/version'
+require_relative 'panchira/panchira_result'
 require_relative 'panchira/resolvers/resolver'
 require_relative 'panchira/extensions'
 
