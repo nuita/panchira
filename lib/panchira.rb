@@ -6,6 +6,7 @@ require 'fastimage'
 require 'json'
 
 require_relative 'panchira/version'
+require_relative 'panchira/panchira_result'
 require_relative 'panchira/resolvers/resolver'
 require_relative 'panchira/extensions'
 
@@ -15,7 +16,7 @@ Dir.glob(project_root + '/panchira/resolvers/*_resolver.rb').sort.each { |file| 
 # Main Panchira code goes here.
 module Panchira
   class << self
-    # Fetch the given URL and returns a hash that contains attributes of hentai.
+    # Fetch the given URL and returns a PanchiraResult.
     def fetch(url)
       resolver = select_resolver(url)
 

@@ -30,7 +30,7 @@ module Panchira
 
       parent = @json['content']['parents'][0]['data']['title']
       description = '著: ' + author if author
-      description += " / #{parent}" if parent
+      description + " / #{parent}" if parent
     end
 
     def parse_canonical_url
