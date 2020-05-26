@@ -26,6 +26,7 @@ module Panchira
       result.title = parse_title
       result.description = parse_description
       result.image = parse_image
+      result.tags = parse_tags
 
       result
     end
@@ -79,6 +80,10 @@ module Panchira
 
     def parse_image_url
       @page.css('//meta[property="og:image"]/@content').first.to_s
+    end
+
+    def parse_tags
+      []
     end
   end
 end
