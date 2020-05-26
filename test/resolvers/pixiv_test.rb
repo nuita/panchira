@@ -11,6 +11,7 @@ class PixivTest < Minitest::Test
     assert_match 'んあー・・・', result.title
     assert_match 'ん？あげませんよ！', result.description
     assert_equal 'https://pixiv.cat/73718144.jpg', result.image.url
+    assert_equal %w(VOICEROID VOICEROID100users入り ハンバーガー 紲星あかり).sort, result.tags.sort
 
     # Fetch the first page if it is manga.
     url = 'https://www.pixiv.net/member_illust.php?mode=medium&illust_id=75871400'
@@ -19,6 +20,7 @@ class PixivTest < Minitest::Test
     assert_match 'DWU', result.title
     assert_match '浅瀬', result.description
     assert_equal 'https://pixiv.cat/75871400-1.jpg', result.image.url
+    assert_equal %w(DWU R-18 バキュームフェラ バーチャルYoutuber 催眠 見せない構図).sort, result.tags.sort
 
     # Look at this new url format.
     url = 'https://www.pixiv.net/artworks/78296385'
@@ -27,5 +29,6 @@ class PixivTest < Minitest::Test
     assert_match '女子大生セッッ', result.title
     assert_match 'ノポン人', result.description
     assert_equal 'https://pixiv.cat/78296385-1.jpg', result.image.url
+    assert_equal %w(R-18 ゼノブレイド10000users入り ゼノブレイド2 トラ(ゼノブレイド2) ハナ ハナJD 中出し 極上の乳 極上の女体 機械娘).sort, result.tags.sort
   end
 end
