@@ -14,9 +14,10 @@ project_root = File.dirname(File.absolute_path(__FILE__))
 Dir.glob(project_root + '/panchira/resolvers/*_resolver.rb').sort.each { |file| require file }
 
 # Main Panchira code goes here.
+# If you simply want to get data from your URL, then ::Panchira::fetch() will do.
 module Panchira
   class << self
-    # Fetch the given URL and returns a PanchiraResult.
+    # Return a PanchiraResult that contains the attributes of given url.
     def fetch(url)
       resolver = select_resolver(url)
 
