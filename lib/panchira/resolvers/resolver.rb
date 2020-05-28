@@ -46,10 +46,22 @@ module Panchira
     end
 
     def parse_canonical_url
-      if (canonical_url = @page.css('//link[rel="canonical"]/@href')).any?
-        canonical_url.to_s
-      else
-        @url
+      history = []
+
+      # fetch page and refresh canonical_url until canonical_url converges.
+      loop do
+        url_in_res = @page.css('//link[rel="canonical"]/@href').to_s
+
+        if url_in_res.empty?
+          return history.last || @url
+        else
+          if history.include?(url_in_res) || history.length > 5
+            return url_in_res
+          else
+            history.push(url_in_res)
+            @page = fetch_page(url_in_res)
+          end
+        end
       end
     end
 
