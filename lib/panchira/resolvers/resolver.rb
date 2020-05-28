@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
-# Resolver is a class that actually GET url and resolve attributes.
-# This class is the default resolver for pages,
-# and is inherited by the other resolvers.
 module Panchira
+  # Resolver is a class that actually get attributes by fetching designated url.
+  # This class is the default resolver for pages. <br>
+  # To create your own resolver, first you make a class that extends Resolver,
+  # and then register it by ::Panchira::Extensions::register().
+  # Then ::Panchira::fetch will pick up your resolver based on your Resolver::applicable?().
   class Resolver
-    # The URL pattern that this resolver tries to resolve.
-    # Should be redefined in subclasses.
+    # URL pattern that a resolver tries to resolve.
+    # You must override this in subclasses to limit which urls to resolve.
     URL_REGEXP = URI::DEFAULT_PARSER.make_regexp
 
     USER_AGENT = "Mozilla/5.0 (compatible; Panchira/#{VERSION}; +https://github.com/nuita/panchira)"
@@ -15,6 +17,8 @@ module Panchira
       @url = url
     end
 
+    # This function is called right after this Resolver instance is made.
+    # Fetch page from @url and return PanchiraResult.
     def fetch
       result = PanchiraResult.new
 
@@ -32,6 +36,7 @@ module Panchira
 
     class << self
       # Tell whether the url is applicable for this resolver.
+      # ::Panchira::fetch uses this method to choose a Resolver for a URL.
       def applicable?(url)
         url =~ self::URL_REGEXP
       end
