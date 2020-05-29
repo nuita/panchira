@@ -8,7 +8,6 @@ module Panchira
 
     class << self
       # Register a given Resolver to Extensions::Resolvers.
-      # Given resolver must be a subclass of Panchira::Resolver.
       def register(resolver)
         @resolvers.push(resolver) unless @resolvers.include?(resolver)
       end

@@ -5,7 +5,7 @@ module Panchira
   # This class is the default resolver for pages. <br>
   # To create your own resolver, first you make a class that extends Resolver,
   # and then register it by ::Panchira::Extensions::register().
-  # Then ::Panchira::fetch will pick up your resolver based on your Resolver::applicable?().
+  # Then ::Panchira::fetch will pick up your resolver when Resolver::applicable?() is true.
   class Resolver
     # URL pattern that a resolver tries to resolve.
     # You must override this in subclasses to limit which urls to resolve.
