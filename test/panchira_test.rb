@@ -17,12 +17,6 @@ class PanchiraTest < Minitest::Test
     assert result.image.url
     assert result.image.width
     assert result.image.height
-
-    # please follow me on Instagram!
-    url = 'https://www.instagram.com/_kypkyp/'
-    result = Panchira.fetch(url)
-    assert_match 'Instagram', result.title
-    assert_match 'kypkyp', result.description
   end
 
   def test_fetch_canonical_url
