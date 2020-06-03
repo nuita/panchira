@@ -11,7 +11,7 @@ module Panchira
     # You must override this in subclasses to limit which urls to resolve.
     URL_REGEXP = URI::DEFAULT_PARSER.make_regexp
 
-    USER_AGENT = "Mozilla/5.0 (compatible; Panchira/#{VERSION}; +https://github.com/nuita/panchira)"
+    USER_AGENT = "Mozilla/5.0 (compatible; PanchiraBot/#{VERSION}; +https://github.com/nuita/panchira)"
 
     def initialize(url)
       @url = url
