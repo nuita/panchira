@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.3.0 - 2020-06-04
+### Added
+- You can now register and use your own Resolver with this gem. (see Panchira::Extensions#register)
+- Added support for new Twitter UI.
+
+### Changed
+- Panchira::fetch now returns an instance of PanchiraResult instead of a hash.
+- Changed default User-Agent slightly.
+
 ## 0.2.0 - 2020-05-18
 ### Added
 - Added support for Shousetsuka Ni Narou (novel18.syosetu.com).
@@ -18,6 +27,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Released Panchira gem. At this time we can parse only 5 websites.
 
+[0.3.0]: https://github.com/nuita/panchira/releases/tag/v0.3.0
 [0.2.0]: https://github.com/nuita/panchira/releases/tag/v0.2.0
 [0.1.1]: https://github.com/nuita/panchira/releases/tag/v0.1.1
 [0.1.0]: https://github.com/nuita/panchira/releases/tag/v0.1.0
