@@ -24,6 +24,10 @@ module Panchira
         @page.css('//meta[property="og:image"]/@content').first.to_s
       end
     end
+
+    def parse_tags
+      @page.css('#view-tag span.tag_name').map(&:text)
+    end
   end
 
   ::Panchira::Extensions.register(Panchira::NijieResolver)
