@@ -25,6 +25,10 @@ module Panchira
     def parse_image_url
       @page.css('//meta[property="og:image"]/@content').first.to_s.sub(/&c=1/, '')
     end
+
+    def parse_tags
+      @page.css('#related_tags .clearfix').children.children.map(&:text)
+    end
   end
 
   ::Panchira::Extensions.register(Panchira::MelonbooksResolver)

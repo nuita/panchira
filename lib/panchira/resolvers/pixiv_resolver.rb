@@ -7,6 +7,9 @@ module Panchira
     def initialize(url)
       super(url)
       @illust_id = url.slice(URL_REGEXP, 2)
+
+      raw_json = URI.parse("https://www.pixiv.net/ajax/illust/#{@illust_id}").read('User-Agent' => USER_AGENT)
+      @json = JSON.parse(raw_json)
     end
 
     private
@@ -26,6 +29,10 @@ module Panchira
       proxy_url
     rescue StandardError
       @page.css('//meta[property="og:image"]/@content').first.to_s
+    end
+
+    def parse_tags
+      @json['body']['tags']['tags'].map{|content| content['tag']}
     end
   end
 

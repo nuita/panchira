@@ -37,6 +37,10 @@ module Panchira
       id = @url.slice(%r{komiflo\.com(?:/#!)?/comics/(\d+)}, 1)
       'https://komiflo.com/comics/' + id
     end
+
+    def parse_tags
+      @json['content']['attributes']['tags']['children'].map{|content| content['data']['name']}
+    end
   end
 
   ::Panchira::Extensions.register(Panchira::KomifloResolver)
