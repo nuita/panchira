@@ -8,7 +8,7 @@ class NarouTest < Minitest::Test
     result = Panchira.fetch(url)
 
     assert_match '知らないうちに催眠ハーレム生徒会', result.title
-    assert_match '新型コロナウイルス', result.title
+    assert_match 'テンプレ現代学園催眠物です。', result.description
 
     url = 'https://novel18.syosetu.com/n2468et/'
     result = Panchira.fetch(url)

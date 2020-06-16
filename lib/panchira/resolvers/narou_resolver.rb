@@ -14,6 +14,13 @@ module Panchira
 
       Nokogiri::HTML.parse(res.body, uri)
     end
+
+    private
+
+    # set novel root because individual chapter doesn't have metatags.
+    def parse_canonical_url
+      @url.match(%r{https?://novel18.syosetu.com/\w+}).to_s
+    end
   end
 
   ::Panchira::Extensions.register(Panchira::NarouResolver)
