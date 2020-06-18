@@ -20,4 +20,22 @@ class NarouTest < Minitest::Test
     assert_match 'ある日、エロゲをプレイしていたところを妹に見られた。', result.description
     assert_equal %w(現代 男主人公 兄妹 口内射精 オナニー 学生 日常 微　レ　ズ 実質処女の非処女 近親相姦 射精管理 純愛 ハッピーエンド イチャラブ 全感想返信).sort, result.tags.sort
   end
+
+  def test_fetch_ncode
+    url = 'https://ncode.syosetu.com/n6383el/'
+    result = Panchira.fetch(url)
+
+    assert_match '太宰治、異世界転生して勇者になる', result.title
+    assert_equal %w(異世界転生  チート 太宰治 文豪 カルモチン 自殺).sort, result.tags.sort
+  end
+
+  def test_fetch_ncode_story
+    # R-15作品やガールズラブ作品はキーワードのところにNBSPが含まれている。
+    url = 'https://ncode.syosetu.com/n6711eo/1/'
+    result = Panchira.fetch(url)
+
+    assert_match 'スコップ無双', result.title
+    assert_match 'プロローグ', result.title
+    assert_equal %w(R15 冒険 ラブコメ 主人公最強 ファンタジー 男主人公 チート 勘違い ギャグ 剣と魔法 異世界 ハーレム コメディ 無双).sort, result.tags.sort
+  end
 end
