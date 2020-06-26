@@ -117,6 +117,7 @@ module Panchira
 
     def image_result
       result = PanchiraResult.new
+      result.canonical_url = @url
       result.image = PanchiraImage.new
       result.image.url = @url
       result
