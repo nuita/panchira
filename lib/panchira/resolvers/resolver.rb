@@ -23,8 +23,6 @@ module Panchira
       result = PanchiraResult.new
 
       @page = fetch_page(@url)
-      return image_result if is_image?
-
       result.canonical_url = parse_canonical_url
 
       @page = fetch_page(result.canonical_url) if @url != result.canonical_url
@@ -48,9 +46,9 @@ module Panchira
     private
 
     def fetch_page(url)
-      @raw_page = URI.parse(url).read('User-Agent' => self.class::USER_AGENT)
-      charset = @raw_page.charset
-      Nokogiri::HTML.parse(@raw_page, url, charset)
+      raw_page = URI.parse(url).read('User-Agent' => self.class::USER_AGENT)
+      charset = raw_page.charset
+      Nokogiri::HTML.parse(raw_page, url, charset)
     end
 
     def parse_canonical_url
@@ -103,24 +101,6 @@ module Panchira
 
     def parse_tags
       []
-    end
-
-    def is_image?
-      content = @raw_page.clone.force_encoding 'utf-8'
-      types = [
-        "\xff\xd8", # jpeg
-        'GIF8', # gif
-        "\x89PNG\x0D\x0A\x1a\x0a", # png
-      ].freeze
-      types.any? { |t| content.start_with? t }
-    end
-
-    def image_result
-      result = PanchiraResult.new
-      result.canonical_url = @url
-      result.image = PanchiraImage.new
-      result.image.url = @url
-      result
     end
   end
 end

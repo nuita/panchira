@@ -14,8 +14,7 @@ module Panchira
         http.use_ssl = u.port == 443
         res = http.get u.request_uri, { 'cookie' => 'over18=yes;' }
 
-        @raw_page = res.body
-        Nokogiri::HTML.parse(@raw_page, uri)
+        Nokogiri::HTML.parse(res.body, uri)
       end
 
       def parse_tags
