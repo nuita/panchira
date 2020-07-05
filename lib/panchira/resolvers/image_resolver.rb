@@ -12,6 +12,4 @@ module Panchira
       result
     end
   end
-
-  ::Panchira::Extensions.register(Panchira::ImageResolver)
 end
