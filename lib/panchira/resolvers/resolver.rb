@@ -12,7 +12,6 @@ module Panchira
     URL_REGEXP = URI::DEFAULT_PARSER.make_regexp
 
     USER_AGENT = "Mozilla/5.0 (compatible; PanchiraBot/#{VERSION}; +https://github.com/nuita/panchira)"
-    COOKIE = ''
 
     def initialize(url)
       @url = url
@@ -49,7 +48,7 @@ module Panchira
     def fetch_page(url)
       read_options = {
         'User-Agent' => self.class::USER_AGENT,
-        'Cookie' => self.class::COOKIE
+        'Cookie' => cookie
       }
 
       raw_page = URI.parse(url).read(read_options)
@@ -107,6 +106,10 @@ module Panchira
 
     def parse_tags
       []
+    end
+
+    def cookie
+      ''
     end
   end
 end
