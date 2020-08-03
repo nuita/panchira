@@ -9,7 +9,7 @@ class NarouTest < Minitest::Test
 
     assert_match '知らないうちに催眠ハーレム生徒会', result.title
     assert_match '新型コロナウイルス', result.title
-    assert_equal %w(女子高生 女子中学生 学園 常識改変 催眠 主人公以外が能力者 現代/現代日本 羞恥 依存 面白い 青春 ハーレム 女の子が重い).sort, result.tags.sort
+    assert result.tags.include?('ハーレム')
   end
 
   def test_fetch_novel18
@@ -18,7 +18,7 @@ class NarouTest < Minitest::Test
 
     assert_match '妹', result.title
     assert_match 'ある日、エロゲをプレイしていたところを妹に見られた。', result.description
-    assert_equal %w(現代 男主人公 兄妹 口内射精 オナニー 学生 日常 微　レ　ズ 実質処女の非処女 近親相姦 射精管理 純愛 ハッピーエンド イチャラブ 全感想返信).sort, result.tags.sort
+    assert result.tags.include?('オナニー')
   end
 
   def test_fetch_ncode
@@ -26,7 +26,7 @@ class NarouTest < Minitest::Test
     result = Panchira.fetch(url)
 
     assert_match '太宰治、異世界転生して勇者になる', result.title
-    assert_equal %w(異世界転生  チート 太宰治 文豪 カルモチン 自殺).sort, result.tags.sort
+    assert result.tags.include?('太宰治')
   end
 
   def test_fetch_ncode_story
@@ -36,6 +36,6 @@ class NarouTest < Minitest::Test
 
     assert_match 'スコップ無双', result.title
     assert_match 'プロローグ', result.title
-    assert_equal %w(R15 冒険 ラブコメ 主人公最強 ファンタジー 男主人公 チート 勘違い ギャグ 剣と魔法 異世界 ハーレム コメディ 無双).sort, result.tags.sort
+    assert result.tags.include?('主人公最強')
   end
 end

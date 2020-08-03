@@ -10,7 +10,7 @@ class NijieTest < Minitest::Test
 
     assert_equal 'https://nijie.info/view.php?id=319985', result.canonical_url
     assert_match '発情めめめ', result.title
-    assert_equal %w(事前 股布ずらし バーチャルYouTuber アイドル部 もこ田めめめ).sort, result.tags.sort
+    assert result.tags.include?('バーチャルYouTuber')
 
     # Fetch thumbnail if the hentai is an animated GIF.
     url = 'http://nijie.info/view.php?id=177736'
