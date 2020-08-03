@@ -46,7 +46,12 @@ module Panchira
     private
 
     def fetch_page(url)
-      raw_page = URI.parse(url).read('User-Agent' => self.class::USER_AGENT)
+      read_options = {
+        'User-Agent' => self.class::USER_AGENT,
+        'Cookie' => cookie
+      }
+
+      raw_page = URI.parse(url).read(read_options)
       charset = raw_page.charset
       Nokogiri::HTML.parse(raw_page, url, charset)
     end
@@ -101,6 +106,10 @@ module Panchira
 
     def parse_tags
       []
+    end
+
+    def cookie
+      ''
     end
   end
 end
