@@ -8,7 +8,7 @@ module Panchira
       super(url)
       @illust_id = url.slice(URL_REGEXP, 2)
 
-      raw_json = URI.parse("https://www.pixiv.net/ajax/illust/#{@illust_id}").read('User-Agent' => USER_AGENT)
+      raw_json = URI.parse("https://www.pixiv.net/ajax/illust/#{@illust_id}").read('User-Agent' => user_agent)
       @json = JSON.parse(raw_json)
     end
 
