@@ -10,7 +10,7 @@ module Panchira
       @url = url
 
       @id = url.slice(URL_REGEXP, 1)
-      raw_json = URI.parse("https://api.komiflo.com/content/id/#{@id}").read('User-Agent' => USER_AGENT)
+      raw_json = URI.parse("https://api.komiflo.com/content/id/#{@id}").read('User-Agent' => user_agent)
       @json = JSON.parse(raw_json)
     end
 
@@ -39,7 +39,7 @@ module Panchira
     end
 
     def parse_tags
-      @json['content']['attributes']['tags']['children'].map{|content| content['data']['name']}
+      @json['content']['attributes']['tags']['children'].map { |content| content['data']['name'] }
     end
   end
 
