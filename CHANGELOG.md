@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## 1.1.0 - 2020-08-06
 ### Added
 - Added support for Fanza Books.
-- Added support for images.
+- Added support for direct links to an image.
 - You can now set cookie by overriding Resolver#cookie in individual resolvers.
 
 ### Changed
