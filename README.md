@@ -6,7 +6,7 @@
 
 Due to some legal or ethical issues, most hentai and NSFW platforms don't clarify their content on meta tags. As a result, most hentai platforms are rendered poorly on the card previews on social media.
 
-To solve this issue, Panchira is made to parse correct and uncensored metadata from such web platforms (at this time we cover **DLSite, Komiflo, Melonbooks, Nijie, Pixiv, Shousetsuka ni narou and Twitter**).
+To solve this issue, Panchira is made to parse correct and uncensored metadata from such web platforms (at this time we cover **DLSite, Komiflo, Melonbooks, Nijie, Pixiv, Shousetsuka ni narou, Fanza and Twitter**).
 
 If you need card previews of hentai on your web application, but can't get them with simply parsing metatags, then it is time for Panchira.
 
@@ -16,7 +16,7 @@ This gem is derived from the [Nuita](https://github.com/nuita/nuita) project.
 
 **Please use this gem with appropriate censoring and age-restricting. Never violate local laws and copyrights.**
 
-If you are running one of the websites we cover and feel negative about it, please contact the community or the author([@kypkyp](https://github.com/kypkyp)). 
+If you are running one of the websites we cover and feel negative about this gem, please contact the community or the author([@kypkyp](https://github.com/kypkyp)). 
 
 ## Installation
 
