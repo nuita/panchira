@@ -8,6 +8,6 @@ class FanzaTest < Minitest::Test
     result = Panchira.fetch(url)
 
     assert_match '10から始める英才教育', result.title
-    assert_equal 'https://ebook-assets.dmm.co.jp/digital/e-book/b425aakkg00140/b425aakkg00140pl.jpg', result.image
+    assert_equal 'https://ebook-assets.dmm.co.jp/digital/e-book/b425aakkg00140/b425aakkg00140pl.jpg', result.image.url
   end
 end
