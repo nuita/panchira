@@ -22,6 +22,10 @@ module Panchira
       def parse_image_url
         @page.css('.m-imgDetailProductPack/@src').first.to_s
       end
+
+      def parse_tags
+        @page.css('.m-boxDetailProductInfo__list__description__item > a').map(&:text)
+      end
     end
 
     class FanzaDoujinResolver < FanzaResolver

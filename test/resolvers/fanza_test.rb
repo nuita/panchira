@@ -9,6 +9,7 @@ class FanzaTest < Minitest::Test
 
     assert_match '10から始める英才教育', result.title
     assert_equal 'https://ebook-assets.dmm.co.jp/digital/e-book/b425aakkg00140/b425aakkg00140pl.jpg', result.image.url
+    assert result.tags.include?('ミニ系')
   end
 
   def test_fetch_fanza_doujin
