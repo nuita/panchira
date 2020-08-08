@@ -9,7 +9,7 @@ module Panchira
 
       private
 
-      def parse_image
+      def parse_image_url
         @page.css('.m-imgDetailProductPack/@src').first.to_s
       end
 
