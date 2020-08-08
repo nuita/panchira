@@ -26,6 +26,10 @@ module Panchira
       def parse_tags
         @page.css('.m-boxDetailProductInfo__list__description__item > a').map(&:text)
       end
+
+      def parse_description
+        @page.css('.m-boxDetailProduct__info__story').first&.text.to_s.gsub(/[\n\t]/, '')
+      end
     end
 
     class FanzaDoujinResolver < FanzaResolver
