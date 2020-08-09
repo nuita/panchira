@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.1.1 - 2020-08-09
+### Added
+- Added support for Fanza Doujin.
+- Added support for description in Fanza Book.
+
+### Fixed
+- Fixed an issue that fetching image was not working in Fanza Book.
+
 ## 1.1.0 - 2020-08-06
 ### Added
 - Added support for Fanza Books.
