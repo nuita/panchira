@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    panchira (1.1.0)
+    panchira (1.1.1)
       fastimage (~> 2.1.7)
       nokogiri (~> 1.10.9)
 
@@ -11,7 +11,7 @@ GEM
     fastimage (2.1.7)
     mini_portile2 (2.4.0)
     minitest (5.14.0)
-    nokogiri (1.10.9)
+    nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     rake (12.3.3)
 
