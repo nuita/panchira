@@ -29,6 +29,7 @@ module Panchira
       result.description = parse_description
       result.image = parse_image
       result.tags = parse_tags
+      result.author = parse_author
 
       result
     end
@@ -108,6 +109,10 @@ module Panchira
 
     def cookie
       ''
+    end
+
+    def parse_author
+      @page.css('//meta[name="author"]/@content').first.to_s
     end
 
     def user_agent
