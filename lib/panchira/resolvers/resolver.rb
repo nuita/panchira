@@ -30,6 +30,7 @@ module Panchira
       result.image = parse_image
       result.tags = parse_tags
       result.author = parse_author
+      result.circle = parse_circle
 
       result
     end
@@ -113,6 +114,10 @@ module Panchira
 
     def parse_author
       @page.css('//meta[name="author"]/@content').first.to_s
+    end
+
+    def parse_circle
+      nil
     end
 
     def user_agent

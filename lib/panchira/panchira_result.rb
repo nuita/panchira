@@ -8,6 +8,6 @@ module Panchira
 
   # Result class for Panchira.fetch.
   class PanchiraResult
-    attr_accessor :canonical_url, :title, :description, :image, :tags, :author
+    attr_accessor :canonical_url, :title, :description, :image, :tags, :author, :circle
   end
 end
