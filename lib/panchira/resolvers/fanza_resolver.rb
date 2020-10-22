@@ -19,6 +19,10 @@ module Panchira
 
       private
 
+      def parse_author
+        @page.css('.m-boxDetailProductInfoMainList__description__list__item > a').first&.text.to_s
+      end
+
       def parse_image_url
         @page.css('.m-imgDetailProductPack/@src').first.to_s
       end
@@ -36,6 +40,10 @@ module Panchira
       URL_REGEXP = %r{dmm\.co\.jp\/dc\/doujin\/}.freeze
 
       private
+
+      def parse_circle
+        @page.css('a.circleName__txt').first.text
+      end
 
       def parse_tags
         @page.css('.genreTag__item').map { |t| t.text.strip }

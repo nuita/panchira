@@ -16,6 +16,7 @@ class FanzaTest < Minitest::Test
     result = Panchira.fetch(url)
     assert_match 'わんぴいす〜美少女捕獲し、日本一周〜', result.title
     assert_match '※強〇は犯罪です。絶対に手口を模倣しないでください。', result.description
+    assert_equal 'クジラックス', result.author
   end
 
   def test_fetch_fanza_doujin
@@ -24,6 +25,7 @@ class FanzaTest < Minitest::Test
 
     assert_match 'げーみんぐはーれむ', result.title
     assert_match '不登校でゲームセンスだけが取り柄の僕は日々培った実力を試すべく、', result.description
+    assert_equal '笹森トモエ', result.circle
     assert result.tags.include?('逆転無し')
 
     # og:image in Doujin looks large enough.
