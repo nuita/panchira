@@ -6,7 +6,15 @@ module Panchira
   module Narou
     class Novel18Resolver < Resolver
       URL_REGEXP = %r{novel18\.syosetu\.com/}.freeze
-      ID_REGEXP = %{novel18\.syosetu\.com/(?<id>[^/]+)}.freeze
+      ID_REGEXP = %{novel18\.syosetu\.com/(?<id>[^/]+)}
+
+      def initialize(url)
+        super(url)
+
+        if id = @url.match(ID_REGEXP)[:id]
+          @desc = fetch_page("https://novel18.syosetu.com/novelview/infotop/ncode/#{id}/")
+        end
+      end
 
       def fetch_page(uri)
         u = URI.parse(uri)
@@ -17,24 +25,35 @@ module Panchira
         Nokogiri::HTML.parse(res.body, uri)
       end
 
-      def parse_tags
-        id = @url.match(ID_REGEXP)[:id]
-        return [] unless id
+      def parse_author
+        @desc&.xpath('//*[@id="noveltable1"]/tr[2]/td')&.text&.strip
+      end
 
-        desc = fetch_page("https://novel18.syosetu.com/novelview/infotop/ncode/#{id}/")
-        desc.xpath('//*[@id="noveltable1"]/tr[3]')&.text&.split("\n\n\n")&.dig(1)&.split(' ') # つらい。
+      def parse_tags
+        # つらい。
+        @desc&.xpath('//*[@id="noveltable1"]/tr[3]')&.text&.split("\n\n\n")&.dig(1)&.split(' ')
       end
     end
+
     class NcodeResolver < Resolver
-      URL_REGEXP = %r{ncode\.syosetu\.com}.freeze
-      ID_REGEXP = %{ncode\.syosetu\.com/(?<id>[^/]+)}.freeze
+      URL_REGEXP = /ncode\.syosetu\.com/.freeze
+      ID_REGEXP = %{ncode\.syosetu\.com/(?<id>[^/]+)}
+
+      def initialize(url)
+        super(url)
+
+        if id = @url.match(ID_REGEXP)[:id]
+          @desc = fetch_page("https://novel18.syosetu.com/novelview/infotop/ncode/#{id}/")
+        end
+      end
+
+      def parse_author
+        @desc&.xpath('//*[@id="noveltable1"]/tr[2]/td')&.text&.strip
+      end
 
       def parse_tags
-        id = @url.match(ID_REGEXP)[:id]
-        return [] unless id
-
-        desc = fetch_page("https://ncode.syosetu.com/novelview/infotop/ncode/#{id}/")
-        desc.xpath('//*[@id="noveltable1"]/tr[3]')&.text&.split("\n\n\n")&.dig(1)&.delete("\u00A0")&.split(' ')&.grep_v('') # めっちゃつらい。
+        # めっちゃつらい。
+        @desc&.xpath('//*[@id="noveltable1"]/tr[3]')&.text&.split("\n\n\n")&.dig(1)&.delete("\u00A0")&.split(' ')&.grep_v('')
       end
     end
   end

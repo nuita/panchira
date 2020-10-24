@@ -9,6 +9,7 @@ class NarouTest < Minitest::Test
 
     assert_match '知らないうちに催眠ハーレム生徒会', result.title
     assert_match '新型コロナウイルス', result.title
+    assert_equal '踏台昇降運動', result.author
     assert result.tags.include?('ハーレム')
   end
 
@@ -18,6 +19,7 @@ class NarouTest < Minitest::Test
 
     assert_match '妹', result.title
     assert_match 'ある日、エロゲをプレイしていたところを妹に見られた。', result.description
+    assert_equal '風見　源一郎', result.author
     assert result.tags.include?('オナニー')
   end
 
@@ -26,6 +28,7 @@ class NarouTest < Minitest::Test
     result = Panchira.fetch(url)
 
     assert_match '太宰治、異世界転生して勇者になる', result.title
+    assert_equal '高橋弘', result.author
     assert result.tags.include?('太宰治')
   end
 
@@ -36,6 +39,7 @@ class NarouTest < Minitest::Test
 
     assert_match 'スコップ無双', result.title
     assert_match 'プロローグ', result.title
+    assert_equal 'ZAP', result.author
     assert result.tags.include?('主人公最強')
   end
 end
