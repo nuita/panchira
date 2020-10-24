@@ -17,20 +17,19 @@ module Panchira
     private
 
     def parse_title
-      comic_title = @json['content']['data']['title']
-      "#{comic_title} | Komiflo"
+      @json['content']['data']['title']
     end
 
     def parse_image_url
       'https://t.komiflo.com/564_mobile_large_3x/' + @json['content']['named_imgs']['cover']['filename']
     end
 
-    def parse_description
-      author = @json['content']['attributes']['artists']['children'][0]['data']['name']
+    def parse_author
+      @json['content']['attributes']['artists']['children'][0]['data']['name']
+    end
 
-      parent = @json['content']['parents'][0]['data']['title']
-      description = '著: ' + author if author
-      description + " / #{parent}" if parent
+    def parse_description
+      @json['content']['parents'][0]['data']['title']
     end
 
     def parse_canonical_url
