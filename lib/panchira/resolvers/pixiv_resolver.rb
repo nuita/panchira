@@ -14,6 +14,14 @@ module Panchira
 
     private
 
+    def parse_title
+      @json['body']['title']
+    end
+
+    def parse_author
+      @json['body']['userName']
+    end
+
     def parse_canonical_url
       'https://pixiv.net/member_illust.php?mode=medium&illust_id=' + @illust_id
     end
@@ -32,7 +40,7 @@ module Panchira
     end
 
     def parse_tags
-      @json['body']['tags']['tags'].map{|content| content['tag']}
+      @json['body']['tags']['tags'].map { |content| content['tag'] }
     end
   end
 
