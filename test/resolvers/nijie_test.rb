@@ -9,7 +9,9 @@ class NijieTest < Minitest::Test
     result = Panchira.fetch(url)
 
     assert_equal 'https://nijie.info/view.php?id=319985', result.canonical_url
-    assert_match '発情めめめ', result.title
+    assert_equal '発情めめめ', result.title
+    assert_equal 'santatsuki', result.author
+    assert_match '抗えない〜', result.description
     assert result.tags.include?('バーチャルYouTuber')
 
     # Fetch thumbnail if the hentai is an animated GIF.

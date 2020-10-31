@@ -6,6 +6,21 @@ module Panchira
 
     private
 
+    def parse_title
+      full_title = super
+      @md = full_title.match(/\A(?<title>.+) \| (?<author>.+)\z/)
+
+      @md[:title]
+    end
+
+    def parse_author
+      @md[:author]
+    end
+
+    def parse_description
+      @page.css('p.illust_description')&.first&.text&.strip
+    end
+
     def parse_canonical_url
       @url.sub(/sp.nijie/, 'nijie').sub(/view_popup/, 'view')
     end

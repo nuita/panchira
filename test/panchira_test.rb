@@ -17,6 +17,10 @@ class PanchiraTest < Minitest::Test
     assert result.image.url
     assert result.image.width
     assert result.image.height
+
+    url = 'https://kmc.gr.jp'
+    result = Panchira.fetch(url)
+    assert_match 'KMC', result.author
   end
 
   def test_fetch_canonical_url

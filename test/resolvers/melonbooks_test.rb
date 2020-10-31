@@ -8,7 +8,9 @@ class MelonbooksTest < Minitest::Test
 
     result = Panchira.fetch(url)
     assert_match 'https://www.melonbooks.co.jp/detail/detail.php?product_id=319663&adult_view=1', result.canonical_url
-    assert_match 'めちゃシコごちうさアソート', result.title
+    assert_equal 'めちゃシコごちうさアソート', result.title
+    assert_equal '高階聖人', result.author
+    assert_equal '47sp.', result.circle
     assert_match 'image=212001143963.jpg', result.image.url
     assert_match(/^(?!.*c=1).*$/, result.image.url)
     assert_match 'めちゃシコシリーズ', result.description
