@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.2.0 - 2020-10-31
+### Added
+- You can now fetch author and circle name in resolvers (Resolver#fetch_author, Resolver#fetch_circle).
+
+### Changed
+- Resolver#fetch_title returns the title of the content (not the original title of the page).
+
 ## 1.1.1 - 2020-08-09
 ### Added
 - Added support for Fanza Doujin.
