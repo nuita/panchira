@@ -41,7 +41,7 @@ module Panchira
 
       def parse_canonical_url
         product_id = @url.slice(URL_REGEXP, 1)
-        'https://www.melonbooks.co.jp/detail/detail.php?product_id=' + product_id + '&adult_view=1'
+        "https://www.melonbooks.co.jp/detail/detail.php?product_id=#{product_id}&adult_view=1"
       end
 
       def parse_description

@@ -23,7 +23,7 @@ module Panchira
       end
 
       def parse_canonical_url
-        'https://pixiv.net/member_illust.php?mode=medium&illust_id=' + @illust_id
+        "https://pixiv.net/member_illust.php?mode=medium&illust_id=#{@illust_id}"
       end
 
       def parse_image_url

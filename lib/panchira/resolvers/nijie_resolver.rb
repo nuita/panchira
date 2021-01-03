@@ -31,7 +31,7 @@ module Panchira
         if s = str.match(%r{https://pic.nijie.(net|info)/(?<servername>\d+)/[^/]+/nijie_picture/(?<imagename>[^"]+)})
           # 動画は容量大きすぎるし取らない
           if s[:imagename] =~ /(jpg|png)/
-            'https://pic.nijie.net/' + s[:servername] + '/nijie_picture/' + s[:imagename]
+            "https://pic.nijie.net/#{s[:servername]}/nijie_picture/#{s[:imagename]}"
           else
             s[0]
           end

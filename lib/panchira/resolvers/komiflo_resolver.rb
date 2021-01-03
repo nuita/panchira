@@ -21,7 +21,7 @@ module Panchira
       end
 
       def parse_image_url
-        'https://t.komiflo.com/564_mobile_large_3x/' + @json['content']['named_imgs']['cover']['filename']
+        "https://t.komiflo.com/564_mobile_large_3x/#{@json['content']['named_imgs']['cover']['filename']}"
       end
 
       def parse_author
@@ -34,7 +34,7 @@ module Panchira
 
       def parse_canonical_url
         id = @url.slice(%r{komiflo\.com(?:/#!)?/comics/(\d+)}, 1)
-        'https://komiflo.com/comics/' + id
+        "https://komiflo.com/comics/#{id}"
       end
 
       def parse_tags

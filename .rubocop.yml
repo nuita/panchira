@@ -43,6 +43,9 @@ Style/IfUnlessModifier:
 Style/NumericPredicate:
   Enabled: false
 
+Style/ParallelAssignment:
+  Enabled: false
+
 Style/WordArray:
   EnforcedStyle: brackets
 

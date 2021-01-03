@@ -15,7 +15,7 @@ module Panchira
     end
 
     class FanzaBookResolver < FanzaResolver
-      URL_REGEXP = %r{book\.dmm\.co\.jp\/}.freeze
+      URL_REGEXP = %r{book\.dmm\.co\.jp/}.freeze
 
       private
 
@@ -37,7 +37,7 @@ module Panchira
     end
 
     class FanzaDoujinResolver < FanzaResolver
-      URL_REGEXP = %r{dmm\.co\.jp\/dc\/doujin\/}.freeze
+      URL_REGEXP = %r{dmm\.co\.jp/dc/doujin/}.freeze
 
       private
 

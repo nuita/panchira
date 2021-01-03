@@ -2,7 +2,7 @@
 
 module Panchira
   class ImageResolver < Resolver
-    URL_REGEXP = %r{\.(png|gif|jpg|jpeg|webp)$}.freeze
+    URL_REGEXP = /\.(png|gif|jpg|jpeg|webp)$/.freeze
 
     def fetch
       result = PanchiraResult.new

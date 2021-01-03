@@ -49,77 +49,12 @@ Metrics/MethodLength:
 Minitest/MultipleAssertions:
   Max: 15
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/ExpandPathArguments:
-  Exclude:
-    - 'panchira.gemspec'
-
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: always, always_true, never
-Style/FrozenStringLiteralComment:
-  Exclude:
-    - 'Gemfile'
-    - 'Rakefile'
-    - 'panchira.gemspec'
-    - 'test/test_helper.rb'
-
 # Offense count: 4
 # Configuration parameters: MinBodyLength.
 Style/GuardClause:
   Exclude:
     - 'lib/panchira/resolvers/narou_resolver.rb'
     - 'lib/panchira/resolvers/resolver.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: UseHashRocketsWithSymbolValues, PreferHashRocketsForNonAlnumEndingSymbols.
-# SupportedStyles: ruby19, hash_rockets, no_mixed_keys, ruby19_no_mixed_keys
-Style/HashSyntax:
-  EnforcedStyle: hash_rockets
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/ParallelAssignment:
-  Exclude:
-    - 'lib/panchira/resolvers/melonbooks_resolver.rb'
-
-# Offense count: 4
-# Cop supports --auto-correct.
-Style/RedundantRegexpEscape:
-  Exclude:
-    - 'lib/panchira/resolvers/fanza_resolver.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, AllowInnerSlashes.
-# SupportedStyles: slashes, percent_r, mixed
-Style/RegexpLiteral:
-  Exclude:
-    - 'lib/panchira/resolvers/image_resolver.rb'
-
-# Offense count: 6
-# Cop supports --auto-correct.
-Style/StringConcatenation:
-  Exclude:
-    - 'lib/panchira.rb'
-    - 'lib/panchira/resolvers/komiflo_resolver.rb'
-    - 'lib/panchira/resolvers/melonbooks_resolver.rb'
-    - 'lib/panchira/resolvers/nijie_resolver.rb'
-    - 'lib/panchira/resolvers/pixiv_resolver.rb'
-
-# Offense count: 38
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiterals:
-  Exclude:
-    - 'Gemfile'
-    - 'Rakefile'
-    - 'panchira.gemspec'
-    - 'test/test_helper.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
