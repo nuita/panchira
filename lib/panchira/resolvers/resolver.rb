@@ -45,83 +45,83 @@ module Panchira
 
     private
 
-    def fetch_page(url)
-      read_options = {
-        'User-Agent' => user_agent,
-        'Cookie' => cookie
-      }
+      def fetch_page(url)
+        read_options = {
+          'User-Agent' => user_agent,
+          'Cookie' => cookie
+        }
 
-      raw_page = URI.parse(url).read(read_options)
-      charset = raw_page.charset
-      Nokogiri::HTML.parse(raw_page, url, charset)
-    end
+        raw_page = URI.parse(url).read(read_options)
+        charset = raw_page.charset
+        Nokogiri::HTML.parse(raw_page, url, charset)
+      end
 
-    def parse_canonical_url
-      history = []
+      def parse_canonical_url
+        history = []
 
-      # fetch page and refresh canonical_url until canonical_url converges.
-      loop do
-        url_in_res = @page.css('//link[rel="canonical"]/@href').to_s
+        # fetch page and refresh canonical_url until canonical_url converges.
+        loop do
+          url_in_res = @page.css('//link[rel="canonical"]/@href').to_s
 
-        if url_in_res.empty?
-          return history.last || @url
-        else
-          if history.include?(url_in_res) || history.length > 5
-            return url_in_res
+          if url_in_res.empty?
+            return history.last || @url
           else
-            history.push(url_in_res)
-            @page = fetch_page(url_in_res)
+            if history.include?(url_in_res) || history.length > 5
+              return url_in_res
+            else
+              history.push(url_in_res)
+              @page = fetch_page(url_in_res)
+            end
           end
         end
       end
-    end
 
-    def parse_title
-      if @page.css('//meta[property="og:title"]/@content').empty?
-        @page.title.to_s
-      else
-        @page.css('//meta[property="og:title"]/@content').to_s
+      def parse_title
+        if @page.css('//meta[property="og:title"]/@content').empty?
+          @page.title.to_s
+        else
+          @page.css('//meta[property="og:title"]/@content').to_s
+        end
       end
-    end
 
-    def parse_description
-      if @page.css('//meta[property="og:description"]/@content').empty?
-        @page.css('//meta[name$="description"]/@content').to_s
-      else
-        @page.css('//meta[property="og:description"]/@content').to_s
+      def parse_description
+        if @page.css('//meta[property="og:description"]/@content').empty?
+          @page.css('//meta[name$="description"]/@content').to_s
+        else
+          @page.css('//meta[property="og:description"]/@content').to_s
+        end
       end
-    end
 
-    def parse_image
-      image = PanchiraImage.new
-      image.url = parse_image_url
-      image.width, image.height = FastImage.size(image.url)
+      def parse_image
+        image = PanchiraImage.new
+        image.url = parse_image_url
+        image.width, image.height = FastImage.size(image.url)
 
-      image
-    end
+        image
+      end
 
-    def parse_image_url
-      @page.css('//meta[property="og:image"]/@content').first.to_s
-    end
+      def parse_image_url
+        @page.css('//meta[property="og:image"]/@content').first.to_s
+      end
 
-    def parse_tags
-      []
-    end
+      def parse_tags
+        []
+      end
 
-    def cookie
-      ''
-    end
+      def cookie
+        ''
+      end
 
-    def parse_author
-      @page.css('//meta[name="author"]/@content').first.to_s
-    end
+      def parse_author
+        @page.css('//meta[name="author"]/@content').first.to_s
+      end
 
-    def parse_circle
-      nil
-    end
+      def parse_circle
+        nil
+      end
 
-    def user_agent
-      "Mozilla/5.0 (compatible; PanchiraBot/#{VERSION}; +https://github.com/nuita/panchira)"
-    end
+      def user_agent
+        "Mozilla/5.0 (compatible; PanchiraBot/#{VERSION}; +https://github.com/nuita/panchira)"
+      end
   end
 end

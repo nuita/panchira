@@ -9,9 +9,9 @@ module Panchira
     class FanzaResolver < Resolver
       private
 
-      def cookie
-        ::Panchira::Fanza::FANZA_COOKIE
-      end
+        def cookie
+          ::Panchira::Fanza::FANZA_COOKIE
+        end
     end
 
     class FanzaBookResolver < FanzaResolver
@@ -19,21 +19,21 @@ module Panchira
 
       private
 
-      def parse_author
-        @page.css('.m-boxDetailProductInfoMainList__description__list__item > a').first&.text.to_s
-      end
+        def parse_author
+          @page.css('.m-boxDetailProductInfoMainList__description__list__item > a').first&.text.to_s
+        end
 
-      def parse_image_url
-        @page.css('.m-imgDetailProductPack/@src').first.to_s
-      end
+        def parse_image_url
+          @page.css('.m-imgDetailProductPack/@src').first.to_s
+        end
 
-      def parse_tags
-        @page.css('.m-boxDetailProductInfo__list__description__item > a').map(&:text)
-      end
+        def parse_tags
+          @page.css('.m-boxDetailProductInfo__list__description__item > a').map(&:text)
+        end
 
-      def parse_description
-        @page.css('.m-boxDetailProduct__info__story').first&.text.to_s.gsub(/[\n\t]/, '')
-      end
+        def parse_description
+          @page.css('.m-boxDetailProduct__info__story').first&.text.to_s.gsub(/[\n\t]/, '')
+        end
     end
 
     class FanzaDoujinResolver < FanzaResolver
@@ -41,13 +41,13 @@ module Panchira
 
       private
 
-      def parse_circle
-        @page.css('a.circleName__txt').first.text
-      end
+        def parse_circle
+          @page.css('a.circleName__txt').first.text
+        end
 
-      def parse_tags
-        @page.css('.genreTag__item').map { |t| t.text.strip }
-      end
+        def parse_tags
+          @page.css('.genreTag__item').map { |t| t.text.strip }
+        end
     end
   end
 

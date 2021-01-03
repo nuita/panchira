@@ -29,12 +29,12 @@ module Panchira
 
     private
 
-    def select_resolver(url)
-      Panchira::Extensions.resolvers.each do |resolver|
-        return resolver if resolver.applicable?(url)
-      end
+      def select_resolver(url)
+        Panchira::Extensions.resolvers.each do |resolver|
+          return resolver if resolver.applicable?(url)
+        end
 
-      Panchira::Resolver
-    end
+        Panchira::Resolver
+      end
   end
 end
