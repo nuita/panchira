@@ -45,18 +45,6 @@ Metrics/CyclomaticComplexity:
 Metrics/MethodLength:
   Max: 21
 
-# Offense count: 14
-# Cop supports --auto-correct.
-Minitest/AssertIncludes:
-  Exclude:
-    - 'test/resolvers/dlsite_test.rb'
-    - 'test/resolvers/fanza_test.rb'
-    - 'test/resolvers/komiflo_test.rb'
-    - 'test/resolvers/melonbooks_test.rb'
-    - 'test/resolvers/narou_test.rb'
-    - 'test/resolvers/nijie_test.rb'
-    - 'test/resolvers/pixiv_test.rb'
-
 # Offense count: 11
 Minitest/MultipleAssertions:
   Max: 15

@@ -12,6 +12,6 @@ class KomifloTest < Minitest::Test
     assert_equal 'NAZ', result.author
     assert_match 'メガストア', result.description
     assert_equal 'https://t.komiflo.com/564_mobile_large_3x/contents/cdcfb81ea67a74519b8ad9dea6de8c5d4cec9f9f.jpg', result.image.url
-    assert result.tags.include?('オナニー')
+    assert_includes result.tags, 'オナニー'
   end
 end

@@ -12,7 +12,7 @@ class PixivTest < Minitest::Test
     assert_match 'ん？あげませんよ！', result.description
     assert_match 'パイングミ', result.author
     assert_equal 'https://pixiv.cat/73718144.jpg', result.image.url
-    assert result.tags.include?('VOICEROID')
+    assert_includes result.tags, 'VOICEROID'
 
     # Fetch the first page if it is manga.
     url = 'https://www.pixiv.net/member_illust.php?mode=medium&illust_id=75871400'
@@ -22,7 +22,7 @@ class PixivTest < Minitest::Test
     assert_match '浅瀬', result.description
     assert_match 'かにかま', result.author
     assert_equal 'https://pixiv.cat/75871400-1.jpg', result.image.url
-    assert result.tags.include?('DWU')
+    assert_includes result.tags, 'DWU'
 
     # Look at this new url format.
     url = 'https://www.pixiv.net/artworks/78296385'
@@ -32,6 +32,6 @@ class PixivTest < Minitest::Test
     assert_match 'ノポン人', result.description
     assert_match 'MだSたろう', result.author
     assert_equal 'https://pixiv.cat/78296385-1.jpg', result.image.url
-    assert result.tags.include?('ハナ')
+    assert_includes result.tags, 'ハナ'
   end
 end
