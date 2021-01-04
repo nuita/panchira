@@ -11,7 +11,7 @@ require_relative 'panchira/resolvers/resolver'
 require_relative 'panchira/extensions'
 
 project_root = File.dirname(File.absolute_path(__FILE__))
-Dir.glob(project_root + '/panchira/resolvers/*_resolver.rb').sort.each { |file| require file }
+Dir.glob("#{project_root}/panchira/resolvers/*_resolver.rb").sort.each { |file| require file }
 
 # register fallback ImageResolver at the end. (resolver is selected by registration order)
 ::Panchira::Extensions.register(Panchira::ImageResolver)
@@ -29,12 +29,12 @@ module Panchira
 
     private
 
-    def select_resolver(url)
-      Panchira::Extensions.resolvers.each do |resolver|
-        return resolver if resolver.applicable?(url)
-      end
+      def select_resolver(url)
+        Panchira::Extensions.resolvers.each do |resolver|
+          return resolver if resolver.applicable?(url)
+        end
 
-      Panchira::Resolver
-    end
+        Panchira::Resolver
+      end
   end
 end

@@ -20,7 +20,7 @@ module Panchira
         u = URI.parse(uri)
         http = Net::HTTP.new(u.host, u.port)
         http.use_ssl = u.port == 443
-        res = http.get u.request_uri, { 'cookie' => 'over18=yes;' }
+        res = http.get u.request_uri, {'cookie' => 'over18=yes;'}
 
         Nokogiri::HTML.parse(res.body, uri)
       end

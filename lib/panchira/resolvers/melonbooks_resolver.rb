@@ -22,46 +22,46 @@ module Panchira
 
     private
 
-    def parse_table
-      title, author, circle = nil, nil, nil
+      def parse_table
+        title, author, circle = nil, nil, nil
 
-      @page.css('#description > table.stripe > tr').each do |tr|
-        case tr.css('th').text
-        when 'タイトル'
-          title = tr.css('td').text.strip
-        when 'サークル名'
-          circle = tr.css('td > a').text.match(/^(.+)\W\(作品数:/)&.values_at(1)[0]
-        when '作家名'
-          author = tr.css('td > a').text.strip
+        @page.css('#description > table.stripe > tr').each do |tr|
+          case tr.css('th').text
+          when 'タイトル'
+            title = tr.css('td').text.strip
+          when 'サークル名'
+            circle = tr.css('td > a').text.match(/^(.+)\W\(作品数:/)&.values_at(1)[0]
+          when '作家名'
+            author = tr.css('td > a').text.strip
+          end
+        end
+
+        [title, author, circle]
+      end
+
+      def parse_canonical_url
+        product_id = @url.slice(URL_REGEXP, 1)
+        "https://www.melonbooks.co.jp/detail/detail.php?product_id=#{product_id}&adult_view=1"
+      end
+
+      def parse_description
+        # スタッフの紹介文でidが分岐
+        special_description = @page.xpath('//div[@id="special_description"]//p/text()')
+        if special_description.any?
+          special_description.first.to_s
+        else
+          description = @page.xpath('//div[@id="description"]//p/text()')
+          description.first.to_s
         end
       end
 
-      [title, author, circle]
-    end
-
-    def parse_canonical_url
-      product_id = @url.slice(URL_REGEXP, 1)
-      'https://www.melonbooks.co.jp/detail/detail.php?product_id=' + product_id + '&adult_view=1'
-    end
-
-    def parse_description
-      # スタッフの紹介文でidが分岐
-      special_description = @page.xpath('//div[@id="special_description"]//p/text()')
-      if special_description.any?
-        special_description.first.to_s
-      else
-        description = @page.xpath('//div[@id="description"]//p/text()')
-        description.first.to_s
+      def parse_image_url
+        @page.css('//meta[property="og:image"]/@content').first.to_s.sub(/&c=1/, '')
       end
-    end
 
-    def parse_image_url
-      @page.css('//meta[property="og:image"]/@content').first.to_s.sub(/&c=1/, '')
-    end
-
-    def parse_tags
-      @page.css('#related_tags .clearfix').children.children.map(&:text)
-    end
+      def parse_tags
+        @page.css('#related_tags .clearfix').children.children.map(&:text)
+      end
   end
 
   ::Panchira::Extensions.register(Panchira::MelonbooksResolver)

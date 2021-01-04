@@ -14,7 +14,7 @@ class MelonbooksTest < Minitest::Test
     assert_match 'image=212001143963.jpg', result.image.url
     assert_match(/^(?!.*c=1).*$/, result.image.url)
     assert_match 'めちゃシコシリーズ', result.description
-    assert result.tags.include?('ココア')
+    assert_includes result.tags, 'ココア'
 
     # Page structure in melonbooks changes if there is a review from staff.
     url = 'https://www.melonbooks.co.jp/detail/detail.php?product_id=242938'

@@ -12,7 +12,7 @@ class NijieTest < Minitest::Test
     assert_equal '発情めめめ', result.title
     assert_equal 'santatsuki', result.author
     assert_match '抗えない〜', result.description
-    assert result.tags.include?('バーチャルYouTuber')
+    assert_includes result.tags, 'バーチャルYouTuber'
 
     # Fetch thumbnail if the hentai is an animated GIF.
     url = 'http://nijie.info/view.php?id=177736'
