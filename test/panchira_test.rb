@@ -17,6 +17,7 @@ class PanchiraTest < Minitest::Test
     assert result.image.url
     assert result.image.width
     assert result.image.height
+    assert_equal 'Panchira::Resolver', result.resolver
 
     url = 'https://kmc.gr.jp'
     result = Panchira.fetch(url)

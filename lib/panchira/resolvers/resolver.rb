@@ -31,6 +31,7 @@ module Panchira
       result.tags = parse_tags
       result.author = parse_author
       result.circle = parse_circle
+      result.resolver = parse_resolver
 
       result
     end
@@ -118,6 +119,10 @@ module Panchira
 
       def parse_circle
         nil
+      end
+
+      def parse_resolver
+        self.class.to_s
       end
 
       def user_agent
