@@ -9,6 +9,7 @@ AllCops:
   Exclude:
     - bin/*
     - vendor/bundle/**/*
+  SuggestExtensions: false
 
 Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
