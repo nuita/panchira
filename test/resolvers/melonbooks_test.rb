@@ -7,6 +7,7 @@ class MelonbooksTest < Minitest::Test
     url = 'https://www.melonbooks.co.jp/detail/detail.php?product_id=319663'
 
     result = Panchira.fetch(url)
+    assert_equal 'Panchira::MelonbooksResolver', result.resolver
     assert_match 'https://www.melonbooks.co.jp/detail/detail.php?product_id=319663&adult_view=1', result.canonical_url
     assert_equal 'めちゃシコごちうさアソート', result.title
     assert_equal '高階聖人', result.author

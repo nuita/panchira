@@ -16,6 +16,7 @@ module Panchira
       result.description = parse_description
       result.image = parse_image
       result.tags = parse_tags
+      result.resolver = parse_resolver
 
       result
     end
