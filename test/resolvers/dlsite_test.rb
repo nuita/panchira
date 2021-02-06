@@ -26,4 +26,13 @@ class DLSiteTest < Minitest::Test
     assert_nil result.circle
     assert_includes result.tags, 'SM'
   end
+
+  def test_dlsite_with_multiple_authors
+    url = 'https://www.dlsite.com/books/work/=/product_id/BJ246254.html'
+    result = Panchira.fetch(url)
+
+    assert_includes result.author, 'たかみち'
+    assert_includes result.author, '猫男爵'
+    assert_includes result.author, 'ぼうえん'
+  end
 end

@@ -29,7 +29,11 @@ module Panchira
       result.description = parse_description
       result.image = parse_image
       result.tags = parse_tags
-      result.author = parse_author
+      if respond_to?(:parse_authors, true)
+        result.authors = parse_authors
+      else
+        result.author = parse_author
+      end
       result.circle = parse_circle
       result.resolver = parse_resolver
 

@@ -14,22 +14,24 @@ module Panchira
       # 3) 商業系。タイトル[著者名]　サークル名なし
       # 込み入った実装になってしまったため、parse自体をいじる必要があるかも
       def parse_title
-        @title_md = super.match(/(.+) \[(\S+)\] \|.+/)
+        @title_md = super.match(/(.+) \[(.+)\] \|.+/)
         @title_md[1]
       end
 
-      def parse_author
+      def parse_authors
         @page.css('table[id*="work_"] tr').each do |tr|
-          if tr.css('th').text =~ /(作|著)者/
-            return @author = tr.css('td > a').first.text.strip
+          next unless tr.css('th').text =~ /(作|著)者/
+
+          return @authors = tr.css('td > a').map do |node|
+            node.text.strip
           end
         end
 
-        @author = nil
+        @authors = nil
       end
 
       def parse_circle
-        @title_md[2] if @author != @title_md[2]
+        @title_md[2] if @authors&.slice(0..2)&.join(' ') != @title_md[2]
       end
 
       def parse_image_url
