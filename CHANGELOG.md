@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 - Fixed an issue that fetching DLSite pages with multiple authors were not working.
-- Fixed a slight issue in fetching Melonbooks pages.
+- Fixed a slight issue in MelonbooksResolver.
 
 ## 1.2.0 - 2020-10-31
 ### Added
