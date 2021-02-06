@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.3.0 - 2021-02-06
+### Added
+- Added support for multiple authors. PanchiraResult#authors now returns an array of authors.
+- PanchiraResult now returns a resolver name used in the process (PanchiraResult#resolver).
+
+### Fixed
+- Fixed an issue that fetching DLSite pages with multiple authors were not working.
+- Fixed a slight issue in fetching Melonbooks pages.
+
 ## 1.2.0 - 2020-10-31
 ### Added
 - You can now fetch author and circle name in resolvers (Resolver#fetch_author, Resolver#fetch_circle).
@@ -58,6 +67,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Released Panchira gem. At this time we can parse only 5 websites.
 
+[1.3.0]: https://github.com/nuita/panchira/releases/tag/v1.3.0
+[1.2.0]: https://github.com/nuita/panchira/releases/tag/v1.2.0
 [1.1.0]: https://github.com/nuita/panchira/releases/tag/v1.1.0
 [1.0.0]: https://github.com/nuita/panchira/releases/tag/v1.0.0
 [0.3.0]: https://github.com/nuita/panchira/releases/tag/v0.3.0
