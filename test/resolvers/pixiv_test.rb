@@ -8,6 +8,7 @@ class PixivTest < Minitest::Test
     url = 'https://www.pixiv.net/member_illust.php?mode=medium&illust_id=73718144'
     result = Panchira.fetch(url)
 
+    assert_equal 'Panchira::PixivResolver', result.resolver
     assert_equal 'んあー・・・', result.title
     assert_match 'ん？あげませんよ！', result.description
     assert_match 'パイングミ', result.author

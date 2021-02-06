@@ -8,6 +8,7 @@ class NijieTest < Minitest::Test
     url = 'https://sp.nijie.info/view_popup.php?id=319985'
     result = Panchira.fetch(url)
 
+    assert_equal 'Panchira::NijieResolver', result.resolver
     assert_equal 'https://nijie.info/view.php?id=319985', result.canonical_url
     assert_equal '発情めめめ', result.title
     assert_equal 'santatsuki', result.author
