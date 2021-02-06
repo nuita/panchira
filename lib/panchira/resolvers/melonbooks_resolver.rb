@@ -31,7 +31,7 @@ module Panchira
           when 'タイトル'
             title = tr.css('td').text.strip
           when 'サークル名'
-            circle = tr.css('td > a').text.match(/^(.+)\W\(作品数:/)&.values_at(1)[0]
+            circle = tr.css('td > a').text.match(/^(.+)\W\(作品数:/)&.values_at(1)&.first
           when '作家名'
             author = tr.css('td > a').text.strip
           end
