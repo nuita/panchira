@@ -49,8 +49,24 @@ module Panchira
           @page.css('.genreTag__item').map { |t| t.text.strip }
         end
     end
+
+    class FanzaVideoResolver < FanzaResolver
+      URL_REGEXP = %r{www.dmm.co.jp/digital/}.freeze
+
+      private
+
+        def parse_title
+          # og:titleは文字数制限で短く切られてる
+          @page.title.match(/(.+)- \S+ - FANZA動画/)&.values_at(1) || super
+        end
+
+        def parse_image
+          super.sub(/(pr|ps).jpg$/, 'pl.jpg')
+        end
+    end
   end
 
   ::Panchira::Extensions.register(Panchira::Fanza::FanzaBookResolver)
   ::Panchira::Extensions.register(Panchira::Fanza::FanzaDoujinResolver)
+  ::Panchira::Extensions.register(Panchira::Fanza::FanzaVideoResolver)
 end
