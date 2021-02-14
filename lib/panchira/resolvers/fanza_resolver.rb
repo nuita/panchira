@@ -57,10 +57,10 @@ module Panchira
 
         def parse_title
           # og:titleは文字数制限で短く切られてる
-          @page.title.match(/(.+)- \S+ - FANZA動画/)&.values_at(1) || super
+          @page.title.match(/(.+)- \S+ - FANZA動画/)[1]&.strip || super
         end
 
-        def parse_image
+        def parse_image_url
           super.sub(/(pr|ps).jpg$/, 'pl.jpg')
         end
     end

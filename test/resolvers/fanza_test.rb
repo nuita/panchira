@@ -37,6 +37,6 @@ class FanzaTest < Minitest::Test
     result = Panchira.fetch(url)
 
     assert_equal 'ハメ×トレ-スポーツ系美少女たちとのエロハメトレーニング- The Motion Anime', result.title
-    assert_equal 'https://pics.dmm.co.jp/digital/video/h_1261amcp00080/h_1261amcp00080pl.jpg', result.image
+    assert_equal 'https://pics.dmm.co.jp/digital/video/h_1261amcp00080/h_1261amcp00080pl.jpg', result.image.url
   end
 end
