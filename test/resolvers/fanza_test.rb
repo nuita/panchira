@@ -31,4 +31,12 @@ class FanzaTest < Minitest::Test
     # og:image in Doujin looks large enough.
     assert_equal 'https://doujin-assets.dmm.co.jp/digital/comic/d_184301/d_184301pr.jpg', result.image.url
   end
+
+  def test_fetch_fanza_video
+    url = 'https://www.dmm.co.jp/digital/anime/-/detail/=/cid=h_1261amcp00080/'
+    result = Panchira.fetch(url)
+
+    assert_equal 'ハメ×トレ-スポーツ系美少女たちとのエロハメトレーニング- The Motion Anime', result.title
+    assert_equal 'https://pics.dmm.co.jp/digital/video/h_1261amcp00080/h_1261amcp00080pl.jpg', result.image.url
+  end
 end
