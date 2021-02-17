@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.3.1 - 2021-02-17
+### Added
+- Added support for Fanza Video.
+
 ## 1.3.0 - 2021-02-06
 ### Added
 - Added support for multiple authors. PanchiraResult#authors now returns an array of authors.
@@ -67,6 +71,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Released Panchira gem. At this time we can parse only 5 websites.
 
+[1.3.1]: https://github.com/nuita/panchira/releases/tag/v1.3.1
 [1.3.0]: https://github.com/nuita/panchira/releases/tag/v1.3.0
 [1.2.0]: https://github.com/nuita/panchira/releases/tag/v1.2.0
 [1.1.0]: https://github.com/nuita/panchira/releases/tag/v1.1.0
