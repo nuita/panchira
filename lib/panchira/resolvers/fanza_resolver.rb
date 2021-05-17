@@ -41,6 +41,12 @@ module Panchira
 
       private
 
+        # canonical urlに別サービス(FANZA GAMES)のURLが設定されていることがあるため、
+        # 別サービスの場合はとりあえず元URLを設定する
+        def parse_canonical_url
+          @url
+        end
+
         def parse_circle
           @page.css('a.circleName__txt').first.text
         end

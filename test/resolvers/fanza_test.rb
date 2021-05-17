@@ -20,6 +20,7 @@ class FanzaTest < Minitest::Test
   end
 
   def test_fetch_fanza_doujin
+    # Book
     url = 'https://www.dmm.co.jp/dc/doujin/-/detail/=/cid=d_184301/'
     result = Panchira.fetch(url)
 
@@ -30,6 +31,14 @@ class FanzaTest < Minitest::Test
 
     # og:image in Doujin looks large enough.
     assert_equal 'https://doujin-assets.dmm.co.jp/digital/comic/d_184301/d_184301pr.jpg', result.image.url
+
+    # Some doujin games have different service(FANZA GAMES) as canonical url in meta tags, so we have to ignore it.
+    url = 'https://www.dmm.co.jp/dc/doujin/-/detail/=/cid=d_174194/'
+    result = Panchira.fetch(url)
+
+    assert_equal 'https://www.dmm.co.jp/dc/doujin/-/detail/=/cid=d_174194/', result.canonical_url
+    assert_match '村長さんの悪だくみ THE MOVIE', result.title
+    assert_equal 'ソクラテス', result.circle
   end
 
   def test_fetch_fanza_video
