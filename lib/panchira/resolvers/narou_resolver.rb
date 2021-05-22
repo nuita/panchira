@@ -25,6 +25,10 @@ module Panchira
         Nokogiri::HTML.parse(res.body, uri)
       end
 
+      def parse_description
+        @desc&.xpath('//*[@id="noveltable1"]/tr/td')&.first&.text&.strip
+      end
+
       def parse_author
         @desc&.xpath('//*[@id="noveltable1"]/tr[2]/td')&.text&.strip
       end
@@ -45,6 +49,10 @@ module Panchira
         if id = @url.match(ID_REGEXP)[:id]
           @desc = fetch_page("https://novel18.syosetu.com/novelview/infotop/ncode/#{id}/")
         end
+      end
+
+      def parse_description
+        @desc&.xpath('//*[@id="noveltable1"]/tr/td')&.first&.text&.strip
       end
 
       def parse_author
