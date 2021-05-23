@@ -6,8 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 1.3.2 - 2021-05-23
 ### Fixed
-- Fixed an issue where Fanza Resolver was retrieving incorrect cannonical URLs from meta tags.
-- Fixed an issue where Narou Resolver retrieved wrong descriptions from meta tags.
+- Fixed an issue where Fanza Resolver was retrieving incorrect canonical URLs.
+- Fixed an issue where Narou Resolver was retrieving wrong descriptions.
 
 ### Changed
 - Updated dependencies.
