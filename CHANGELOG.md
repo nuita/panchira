@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.3.2 - 2021-05-23
+### Fixed
+- Fixed an issue where Fanza Resolver was retrieving incorrect cannonical URLs from meta tags.
+- Fixed an issue where Narou Resolver retrieved wrong descriptions from meta tags.
+
+### Changed
+- Updated dependencies.
+
 ## 1.3.1 - 2021-02-17
 ### Added
 - Added support for Fanza Video.
