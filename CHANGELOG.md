@@ -6,8 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 1.3.2 - 2021-05-23
 ### Fixed
-- Fixed an issue where Fanza Resolver was retrieving incorrect cannonical URLs from meta tags.
-- Fixed an issue where Narou Resolver retrieved wrong descriptions from meta tags.
+- Fixed an issue where Fanza Resolver was retrieving incorrect canonical URLs.
+- Fixed an issue where Narou Resolver was retrieving wrong descriptions.
 
 ### Changed
 - Updated dependencies.
@@ -79,6 +79,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Released Panchira gem. At this time we can parse only 5 websites.
 
+[1.3.2]: https://github.com/nuita/panchira/releases/tag/v1.3.2
 [1.3.1]: https://github.com/nuita/panchira/releases/tag/v1.3.1
 [1.3.0]: https://github.com/nuita/panchira/releases/tag/v1.3.0
 [1.2.0]: https://github.com/nuita/panchira/releases/tag/v1.2.0
