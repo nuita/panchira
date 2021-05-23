@@ -16,15 +16,15 @@ class DLSiteTest < Minitest::Test
     assert_equal 'https://img.dlsite.jp/modpub/images2/work/doujin/RJ256000/RJ255695_img_main.jpg', result.image.url
     assert_includes result.tags, '淫語'
 
-    # Shogyo with author and without circle. I personally love this book.
-    url = 'https://www.dlsite.com/books/work/=/product_id/BJ066976.html'
+    # Commercial commic with author and without circle.
+    url = 'https://dlsite.jp/bowot/BJ101997/?utm_content=BJ101997'
     result = Panchira.fetch(url)
 
-    assert_match 'ミルク*クラウン', result.title
-    assert_match '全ドM男子&ドS女子必携!', result.description
-    assert_match '豆', result.author
+    assert_match '僕は管理・管理・管理されている', result.title
+    assert_match '射精管理', result.description
+    assert_match '紅唯まと', result.author
     assert_nil result.circle
-    assert_includes result.tags, 'SM'
+    assert_includes result.tags, '男性受け'
   end
 
   def test_dlsite_with_multiple_authors
