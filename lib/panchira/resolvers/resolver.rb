@@ -56,7 +56,13 @@ module Panchira
           'Cookie' => cookie
         }
 
-        raw_page = URI.parse(url).read(read_options)
+        raw_page = begin
+          URI.parse(url).read(read_options)
+        rescue OpenSSL::SSL::SSLError
+          http_url = url.sub('https://', 'http://')
+          URI.parse(http_url).read(read_options)
+        end
+
         charset = raw_page.charset
         Nokogiri::HTML.parse(raw_page, url, charset)
       end
