@@ -25,7 +25,7 @@ jobs:
       with:
         ruby-version: 2.6
     - name: allow small dh key
-      run: sed -i -e 's/CipherString = DEFAULT@SECLEVEL=2/# CipherString = DEFAULT@SECLEVEL=2/g' /etc/ssl/openssl.cnf
+      run: sudo sed -i -e 's/CipherString = DEFAULT@SECLEVEL=2/# CipherString = DEFAULT@SECLEVEL=2/g' /etc/ssl/openssl.cnf
     - name: Install dependencies
       run: bundle install
     - name: Run tests
