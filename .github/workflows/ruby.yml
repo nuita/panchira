@@ -24,6 +24,7 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.6
+    - run: cat /etc/ssl/openssl.cnf
     - name: allow small dh key
       run: sudo sed -i -e 's/CipherString = DEFAULT@SECLEVEL=2/# CipherString = DEFAULT@SECLEVEL=2/g' /etc/ssl/openssl.cnf
     - name: Install dependencies
