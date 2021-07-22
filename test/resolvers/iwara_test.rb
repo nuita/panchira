@@ -3,7 +3,7 @@
 require 'test_helper'
 
 class IwaraTest < Minitest::Test
-  def test_fetch_komiflo
+  def test_fetch_iwara
     url = 'https://ecchi.iwara.tv/videos/vqgajhmvpahe1xpgm'
     result = Panchira.fetch(url)
 
