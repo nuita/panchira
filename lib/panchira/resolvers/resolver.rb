@@ -67,6 +67,9 @@ module Panchira
         # fetch page and refresh canonical_url until canonical_url converges.
         loop do
           url_in_res = @page.css('//link[rel="canonical"]/@href').to_s
+          if url_in_res.empty?
+            url_in_res = @page.css('//meta[property="og:url"]/@content').to_s
+          end
 
           if url_in_res.empty?
             return history.last || @url
