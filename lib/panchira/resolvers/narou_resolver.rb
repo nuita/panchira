@@ -37,6 +37,11 @@ module Panchira
         # つらい。
         @desc&.xpath('//*[@id="noveltable1"]/tr[3]')&.text&.split("\n\n\n")&.dig(1)&.split(' ')
       end
+
+      # og:urlで指定されたncode.syosetu.com/~~~にアクセスすると301で戻されるので何もしない
+      def parse_canonical_url
+        @url
+      end
     end
 
     class NcodeResolver < Resolver
@@ -62,6 +67,11 @@ module Panchira
       def parse_tags
         # めっちゃつらい。
         @desc&.xpath('//*[@id="noveltable1"]/tr[3]')&.text&.split("\n\n\n")&.dig(1)&.delete("\u00A0")&.split(' ')&.grep_v('')
+      end
+
+      # og:urlで指定されたncode.syosetu.com/~~~にアクセスすると301で戻されるので何もしない
+      def parse_canonical_url
+        @url
       end
     end
   end
