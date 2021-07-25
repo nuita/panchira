@@ -73,14 +73,14 @@ module Panchira
 
           if url_in_res.empty?
             return history.last || @url
-          else
-            if history.include?(url_in_res) || history.length > 5
-              return url_in_res
-            else
-              history.push(url_in_res)
-              @page = fetch_page(url_in_res)
-            end
           end
+
+          if history.include?(url_in_res) || history.length > 5
+            return url_in_res
+          end
+
+          history.push(url_in_res)
+          @page = fetch_page(url_in_res)
         end
       end
 
