@@ -67,17 +67,20 @@ module Panchira
         # fetch page and refresh canonical_url until canonical_url converges.
         loop do
           url_in_res = @page.css('//link[rel="canonical"]/@href').to_s
+          if url_in_res.empty?
+            url_in_res = @page.css('//meta[property="og:url"]/@content').to_s
+          end
 
           if url_in_res.empty?
             return history.last || @url
-          else
-            if history.include?(url_in_res) || history.length > 5
-              return url_in_res
-            else
-              history.push(url_in_res)
-              @page = fetch_page(url_in_res)
-            end
           end
+
+          if history.include?(url_in_res) || history.length > 5
+            return url_in_res
+          end
+
+          history.push(url_in_res)
+          @page = fetch_page(url_in_res)
         end
       end
 

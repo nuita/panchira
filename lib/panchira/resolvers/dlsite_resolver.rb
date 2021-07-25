@@ -39,7 +39,13 @@ module Panchira
       end
 
       def parse_tags
-        @page.css('.main_genre').children.children.map(&:text)
+        @page.css('table[id*="work_"] tr').each do |tr|
+          next unless tr.css('th').text =~ /ジャンル/
+
+          return tr.css('td a').map do |node|
+            node.text.strip
+          end
+        end
       end
   end
 
