@@ -19,7 +19,11 @@ module Panchira
       end
 
       def parse_tags
-        @page.css('.node-info .field-item').map { |e| e.children&.text }
+        @page.css('.field-name-field-categories .field-item').map { |e| e.children&.text }
+      end
+
+      def parse_description
+        @page.at_css('.field-name-body')&.text
       end
 
       def cookie
