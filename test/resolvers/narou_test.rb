@@ -14,13 +14,13 @@ class NarouTest < Minitest::Test
   end
 
   def test_fetch_novel18
-    url = 'https://novel18.syosetu.com/n2468et/'
+    url = 'https://novel18.syosetu.com/n7016er/'
     result = Panchira.fetch(url)
 
-    assert_match '妹', result.title
-    assert_match 'ある日、エロゲをプレイしていたところを妹に見られた。', result.description
-    assert_equal '風見　源一郎', result.author
-    assert_includes result.tags, 'オナニー'
+    assert_match 'TS（？）少女が無意識に常時スキル「魅了」でファンタジー世界を歩くお話（仮）', result.title
+    assert_match '突然ファンタジー世界に降り立った主人公は自分がなんとなく男であり女ではなかったという感覚だけを残して記憶を失っていた。', result.description
+    assert_equal 'KawaHaru', result.author
+    assert_includes result.tags, 'TS'
   end
 
   def test_fetch_ncode
