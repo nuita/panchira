@@ -35,4 +35,15 @@ class PixivTest < Minitest::Test
     assert_equal 'https://pixiv.cat/78296385-1.jpg', result.image.url
     assert_includes result.tags, 'ハナ'
   end
+
+  def test_fetch_pixiv_novel
+    # This test case would never be broken.
+    url = 'https://www.pixiv.net/novel/show.php?id=14623881'
+    result = Panchira.fetch(url)
+
+    assert_equal '後輩', result.title
+    assert_equal 'newkyp', result.author
+    assert_match 'おしっこの描写、その他残酷な描写があります', result.description
+    assert_includes result.tags, '巨大娘'
+  end
 end

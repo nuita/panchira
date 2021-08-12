@@ -44,5 +44,32 @@ module Panchira
       end
   end
 
+  class PixivNovelResolver < Resolver
+    URL_REGEXP = %r{pixiv\.net/novel/show.php\?id=(\d+)}.freeze
+
+    def initialize(url)
+      super(url)
+      @novel_id = url.slice(URL_REGEXP, 1)
+
+      raw_json = URI.parse("https://www.pixiv.net/ajax/novel/#{@novel_id}").read('User-Agent' => user_agent)
+      @json = JSON.parse(raw_json)
+    end
+
+    private
+
+      def parse_title
+        @json['body']['title']
+      end
+
+      def parse_author
+        @json['body']['userName']
+      end
+
+      def parse_tags
+        @json['body']['tags']['tags'].map { |content| content['tag'] }
+      end
+  end
+
   ::Panchira::Extensions.register(Panchira::PixivResolver)
+  ::Panchira::Extensions.register(Panchira::PixivNovelResolver)
 end
