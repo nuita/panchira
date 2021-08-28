@@ -9,6 +9,8 @@ module Panchira
       result.canonical_url = @url
       result.image = PanchiraImage.new
       result.image.url = @url
+      result.image.width, result.image.height = FastImage.size(result.image.url)
+
       result.resolver = parse_resolver
       result
     end
