@@ -15,6 +15,8 @@ class ImageTest < Minitest::Test
     result = Panchira.fetch(url)
 
     assert_match url, result.image.url
+    assert_equal 200, result.image.width
+    assert_equal 62, result.image.height
   end
 
   def test_fetch_gif
@@ -22,5 +24,7 @@ class ImageTest < Minitest::Test
     result = Panchira.fetch(url)
 
     assert_match url, result.image.url
+    assert_equal 180, result.image.width
+    assert_equal 67, result.image.height
   end
 end
