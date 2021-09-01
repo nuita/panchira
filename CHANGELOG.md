@@ -4,13 +4,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.3.5 - 2021-09-01
+### Added
+- Added support for Pixiv Novel.
+
+### Fixed
+- Fixed an issue where Image Resolver missed image scales.
+
 ## 1.3.4 - 2021-07-26
 ### Fixed
 - Fixed an issue where Iwara Resolver failed when a description was present.
 
 ## 1.3.3 - 2021-07-25
 ### Added
-- Added Support for Iwara.
+- Added support for Iwara.
 
 ### Fixed
 - Fixed an issue where DLsite Resolver was retrieving wrong tags.
@@ -90,6 +97,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Released Panchira gem. At this time we can parse only 5 websites.
 
+[1.3.5]: https://github.com/nuita/panchira/releases/tag/v1.3.5
+[1.3.4]: https://github.com/nuita/panchira/releases/tag/v1.3.4
+[1.3.3]: https://github.com/nuita/panchira/releases/tag/v1.3.3
 [1.3.2]: https://github.com/nuita/panchira/releases/tag/v1.3.2
 [1.3.1]: https://github.com/nuita/panchira/releases/tag/v1.3.1
 [1.3.0]: https://github.com/nuita/panchira/releases/tag/v1.3.0
