@@ -13,9 +13,12 @@ class MelonbooksTest < Minitest::Test
     assert_equal '高階聖人', result.author
     assert_equal '47sp.', result.circle
     assert_match 'image=212001143963.jpg', result.image.url
-    assert_match(/^(?!.*c=1).*$/, result.image.url)
     assert_match 'めちゃシコシリーズ', result.description
     assert_includes result.tags, 'ココア'
+
+    assert_match 'image=', result.image.url
+    assert_match(/^(?!.*c=1).*$/, result.image.url)
+    assert_match(/^(?!.*width=).*$/, result.image.url)
 
     # Page structure in melonbooks changes if there is a review from staff.
     url = 'https://www.melonbooks.co.jp/detail/detail.php?product_id=242938'

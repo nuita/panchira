@@ -57,7 +57,10 @@ module Panchira
       end
 
       def parse_image_url
-        @page.css('//meta[property="og:image"]/@content').first.to_s.sub(/&c=1/, '')
+        url = @page.css('//meta[property="og:image"]/@content').first.to_s
+        image = url.match(/resize_image.php\?image=([^&]+)/)[1]
+
+        "https://melonbooks.akamaized.net/user_data/packages/resize_image.php?image=#{image}"
       end
 
       def parse_tags
