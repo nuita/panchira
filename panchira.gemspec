@@ -41,4 +41,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'fastimage', '~> 2.1.7'
   spec.add_dependency 'nokogiri', '>= 1.10.9', '< 1.12.0'
+  spec.add_dependency 'twitter-text', '~>3.1.0'
 end
