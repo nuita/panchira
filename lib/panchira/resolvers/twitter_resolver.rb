@@ -2,8 +2,6 @@ require 'twitter-text'
 
 module Panchira
   class TwitterResolver < Resolver
-    include Twitter::TwitterText::Extractor
-
     URL_REGEXP = /twitter.com\/\w+\/status\/\d+/.freeze
 
     private
@@ -20,7 +18,7 @@ module Panchira
       end
 
       def parse_tags
-        extract_hashtags(@description)
+        @description.scan(/[#＃]([^#＃\s]+)/).map(&:first)
       end
   end
 
