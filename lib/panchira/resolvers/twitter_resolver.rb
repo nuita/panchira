@@ -1,5 +1,3 @@
-require 'twitter-text'
-
 module Panchira
   class TwitterResolver < Resolver
     URL_REGEXP = /twitter.com\/\w+\/status\/\d+/.freeze
