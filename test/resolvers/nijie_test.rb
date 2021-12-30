@@ -11,7 +11,7 @@ class NijieTest < Minitest::Test
     assert_equal 'Panchira::NijieResolver', result.resolver
     assert_equal 'https://nijie.info/view.php?id=319985', result.canonical_url
     assert_equal '発情めめめ', result.title
-    assert_equal 'santatsuki', result.author
+    assert_equal 'ジルコン', result.author
     assert_match '抗えない〜', result.description
     assert_includes result.tags, 'バーチャルYouTuber'
 
