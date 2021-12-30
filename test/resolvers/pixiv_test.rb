@@ -26,14 +26,14 @@ class PixivTest < Minitest::Test
     assert_includes result.tags, 'DWU'
 
     # Look at this new url format.
-    url = 'https://www.pixiv.net/artworks/78296385'
+    url = 'https://www.pixiv.net/artworks/55434358'
     result = Panchira.fetch(url)
 
-    assert_equal '女子大生セッッ', result.title
-    assert_match 'ノポン人', result.description
-    assert_match 'MだSたろう', result.author
-    assert_equal 'https://pixiv.cat/78296385-1.jpg', result.image.url
-    assert_includes result.tags, 'ハナ'
+    assert_equal 'ああ～心がぴょんぴょんするんじゃ～', result.title
+    assert_match 'Pietのプログラムのソースコード', result.description
+    assert_match 'むらため', result.author
+    assert_equal 'https://pixiv.cat/55434358-1.jpg', result.image.url
+    assert_includes result.tags, 'Piet'
   end
 
   def test_fetch_pixiv_novel
