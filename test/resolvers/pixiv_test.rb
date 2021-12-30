@@ -51,6 +51,6 @@ class PixivTest < Minitest::Test
     url = 'https://www.pixiv.net/en/artworks/94741740'
     result = Panchira.fetch(url)
 
-    assert_equal 'https://pixiv.cat/94741740.png', result.image.url
+    assert_equal 'https://pixiv.cat/94741740.jpg', result.image.url
   end
 end
