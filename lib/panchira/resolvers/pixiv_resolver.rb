@@ -2,7 +2,7 @@
 
 module Panchira
   class PixivResolver < Resolver
-    URL_REGEXP = %r{pixiv\.net/(member_illust.php?.*illust_id=|artworks/)(\d+)}.freeze
+    URL_REGEXP = %r{pixiv\.net/.*(member_illust.php?.*illust_id=|artworks/)(\d+)}.freeze
 
     def initialize(url)
       super(url)
