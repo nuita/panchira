@@ -28,5 +28,13 @@ class NijieTest < Minitest::Test
     assert_equal 'https://pic.nijie.net/05/nijie_picture/3965_20190710041444_0.png', result.image.url
     assert_equal 1764, result.image.width
     assert_equal 1876, result.image.height
+
+    # new image url
+    url = 'https://nijie.info/view.php?id=463339'
+    result = Panchira.fetch(url)
+
+    assert_equal 'https://pic.nijie.net/08/nijie/21/19/1592919/illust/0_0_307cb2b0b570009a_c5e0ff.png', result.image.url
+    assert_equal 737, result.image.width
+    assert_equal 1000, result.image.height
   end
 end
