@@ -29,7 +29,6 @@ module Panchira
         str = @page.css('//script[@type="application/ld+json"]/text()').first.to_s.split.join(' ')
         thumbnail_url = JSON.parse(str)['thumbnailUrl']
 
-        # thumbnail_urlが存在しないか、gif画像など動画の場合はロゴ画像を返す
         unless thumbnail_url
           return @page.css('//meta[property="og:image"]/@content').first.to_s
         end
