@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.4.0 - 2022-01-10
+### Added
+- Added support for non-Japanese pixiv URLs.
+
+### Fixed
+- Fixed an issue where Nijie Resolver failed to fetch image.
+
+### Changed
+- Dropped support for Ruby 2.6.
+
 ## 1.3.6 - 2021-10-19
 ### Added
 - Added support for Twitter.
