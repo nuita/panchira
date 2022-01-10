@@ -26,17 +26,17 @@ module Panchira
       end
 
       def parse_image_url
-        str = @page.css('//script[@type="application/ld+json"]/text()').first.to_s
+        str = @page.css('//script[@type="application/ld+json"]/text()').first.to_s.split.join(' ')
+        thumbnail_url = JSON.parse(str)['thumbnailUrl']
 
-        if s = str.match(%r{https://pic.nijie.(net|info)/(?<servername>\d+)/[^/]+/nijie_picture/(?<imagename>[^"]+)})
-          # 動画は容量大きすぎるし取らない
-          if s[:imagename] =~ /(jpg|png)/
-            "https://pic.nijie.net/#{s[:servername]}/nijie_picture/#{s[:imagename]}"
-          else
-            s[0]
-          end
+        unless thumbnail_url
+          return @page.css('//meta[property="og:image"]/@content').first.to_s
+        end
+
+        if md = thumbnail_url.match(%r{pic.nijie.net/\w+(?<resolution>/\w+/)nijie.+\.(?<format>png|jpg|jpeg)})
+          thumbnail_url.sub(md[:resolution], '/')
         else
-          @page.css('//meta[property="og:image"]/@content').first.to_s
+          thumbnail_url
         end
       end
 
