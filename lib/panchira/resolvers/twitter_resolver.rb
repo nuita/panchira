@@ -8,7 +8,7 @@ module Panchira
       end
 
       def parse_author
-        @title.match(/\A(.+) on Twitter\z/)[1]
+        @title.match(/\A(.+) on Twitter\z/)&.at(1)
       end
 
       def parse_description
