@@ -25,7 +25,7 @@ class NijieTest < Minitest::Test
     url = 'https://nijie.info/view.php?id=322323'
     result = Panchira.fetch(url)
 
-    assert_equal 'https://pic.nijie.net/05/nijie_picture/3965_20190710041444_0.png', result.image.url
+    assert_equal 'https://pic.nijie.net/07/nijie/19/65/3965/illust/0_0_fd2ac5566672db1e_7ecdab.png', result.image.url
     assert_equal 1764, result.image.width
     assert_equal 1876, result.image.height
 
