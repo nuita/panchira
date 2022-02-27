@@ -17,6 +17,10 @@ Layout/FirstHashElementIndentation:
 Layout/IndentationConsistency:
   EnforcedStyle: indented_internal_methods
 
+Layout/MultilineAssignmentLayout:
+  EnforcedStyle: same_line
+  SupportedTypes: ["block"]
+
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
@@ -29,6 +33,9 @@ Lint/AssignmentInCondition:
 Lint/MissingSuper:
   Exclude:
     - lib/panchira/resolvers/*
+
+Lint/SymbolConversion:
+  EnforcedStyle: consistent
 
 Style/AsciiComments:
   Enabled: false
