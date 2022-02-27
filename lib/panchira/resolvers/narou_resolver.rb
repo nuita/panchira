@@ -8,8 +8,8 @@ module Panchira
       URL_REGEXP = %r{novel18\.syosetu\.com/}.freeze
       ID_REGEXP = %{novel18\.syosetu\.com/(?<id>[^/]+)}
 
-      def initialize(url)
-        super(url)
+      def initialize(url, options = nil)
+        super(url, options)
 
         if id = @url.match(ID_REGEXP)[:id]
           @desc = fetch_page("https://novel18.syosetu.com/novelview/infotop/ncode/#{id}/")
@@ -48,8 +48,8 @@ module Panchira
       URL_REGEXP = /ncode\.syosetu\.com/.freeze
       ID_REGEXP = %{ncode\.syosetu\.com/(?<id>[^/]+)}
 
-      def initialize(url)
-        super(url)
+      def initialize(url, options = nil)
+        super(url, options)
 
         if id = @url.match(ID_REGEXP)[:id]
           @desc = fetch_page("https://novel18.syosetu.com/novelview/infotop/ncode/#{id}/")

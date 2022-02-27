@@ -4,8 +4,8 @@ module Panchira
   class PixivResolver < Resolver
     URL_REGEXP = %r{pixiv\.net/.*(member_illust.php?.*illust_id=|artworks/)(\d+)}.freeze
 
-    def initialize(url)
-      super(url)
+    def initialize(url, options = nil)
+      super(url, options)
       @illust_id = url.slice(URL_REGEXP, 2)
 
       raw_json = URI.parse("https://www.pixiv.net/ajax/illust/#{@illust_id}").read('User-Agent' => user_agent)
@@ -47,8 +47,8 @@ module Panchira
   class PixivNovelResolver < Resolver
     URL_REGEXP = %r{pixiv\.net/novel/show.php\?id=(\d+)}.freeze
 
-    def initialize(url)
-      super(url)
+    def initialize(url, options = nil)
+      super(url, options)
       @novel_id = url.slice(URL_REGEXP, 1)
 
       raw_json = URI.parse("https://www.pixiv.net/ajax/novel/#{@novel_id}").read('User-Agent' => user_agent)

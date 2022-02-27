@@ -11,8 +11,9 @@ module Panchira
     # You must override this in subclasses to limit which urls to resolve.
     URL_REGEXP = URI::DEFAULT_PARSER.make_regexp
 
-    def initialize(url)
+    def initialize(url, options = nil)
       @url = url
+      @options = options
     end
 
     # This function is called right after this Resolver instance is made.

@@ -6,8 +6,8 @@ module Panchira
   class KomifloResolver < Resolver
     URL_REGEXP = %r{komiflo\.com(?:/#!)?/comics/(\d+)}.freeze
 
-    def initialize(url)
-      @url = url
+    def initialize(url, options = nil)
+      super(url, options)
 
       @id = url.slice(URL_REGEXP, 1)
       raw_json = URI.parse("https://api.komiflo.com/content/id/#{@id}").read('User-Agent' => user_agent)

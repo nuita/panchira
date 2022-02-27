@@ -21,10 +21,10 @@ Dir.glob("#{project_root}/panchira/resolvers/*_resolver.rb").sort.each { |file| 
 module Panchira
   class << self
     # Return a PanchiraResult that contains the attributes of given url.
-    def fetch(url)
+    def fetch(url, options = nil)
       resolver = select_resolver(url)
 
-      resolver.new(url).fetch
+      resolver.new(url, options).fetch
     end
 
     private
