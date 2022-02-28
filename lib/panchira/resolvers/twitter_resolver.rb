@@ -1,5 +1,4 @@
 require 'uri'
-require 'byebug'
 
 module Panchira
   class TwitterResolver < Resolver
@@ -52,12 +51,12 @@ module Panchira
       end
 
       def parse_title
-        if @response
-          @author = @response['includes']['users'][0]['name']
-          "#{@author} on Twitter"
-        else
-          super
-        end
+        @title = if @response
+                   @author = @response['includes']['users'][0]['name']
+                   "#{@author} on Twitter"
+                 else
+                   super
+                 end
       end
 
       def parse_author
@@ -86,11 +85,8 @@ module Panchira
         return super unless @response
 
         first_media = @response.dig('includes', 'media')&.first
-        puts first_media.to_json
 
         return unless first_media
-
-        puts first_media.to_json
 
         case first_media['type']
         when 'photo'
