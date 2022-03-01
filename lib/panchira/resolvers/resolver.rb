@@ -54,7 +54,8 @@ module Panchira
       def fetch_page(url)
         read_options = {
           'User-Agent' => user_agent,
-          'Cookie' => cookie
+          'Cookie' => cookie,
+          :read_timeout => 10
         }
 
         raw_page = URI.parse(url).read(read_options)
