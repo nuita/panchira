@@ -46,6 +46,16 @@ In most situation you would call `Panchira#fetch`. It is a singular method that 
 
 Panchira has a special treatment for each website. `Resolver` classes are where those treatments take place, and you can use your own `Resolver` classes by registering it to Panchira. See `Panchira::Extensions` documentation in source code for further details.
 
+### About Twitter API
+
+Due to a recent change in Twitter, it's getting really hard to fetch tweet data by scraping. To solve this problem, Panchira can now use Twitter official API.
+
+To use Twitter API instead of normal scraping, please set Twitter's bearer token as an option to `Panchira::fetch`. If you don't set token, Panchira will just fall back to simple scraping. 
+
+```
+> Panchira.fetch("https://twitter.com/example/status/1234567890", options: {twitter: {bearer_token: 'ABC...123'}})
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
