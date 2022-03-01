@@ -31,3 +31,5 @@ jobs:
         run: bundle install
       - name: Run tests
         run: bundle exec rake test
+        env:
+          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}

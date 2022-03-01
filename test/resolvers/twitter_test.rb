@@ -9,14 +9,26 @@ class TwitterTest < Minitest::Test
 
     assert_match '勃起タイムbot', result.title
     assert_equal '勃起タイムbot', result.author
+
     assert_equal '君は中学生なのになかなかの勃起サイズをしているね？', result.description
     assert_match 'https://pbs.twimg.com/media', result.image.url
+  end
 
-    # ハッシュタグのテスト
-    url = 'https://twitter.com/atahuta_/status/1360990273619193860'
-    result = Panchira.fetch(url)
+  # To test this case, you have to set environment variable TWITTER_BEARER_TOKEN.
+  def test_fetch_twitter_from_api
+    bearer_token = ENV['TWITTER_BEARER_TOKEN']
+    return unless bearer_token
 
-    assert_equal 'paizuri_watson #hololewd #amelewd', result.description
-    assert_equal ['hololewd', 'amelewd'], result.tags
+    # Due to sensitive settings, the content of tweet can be taken only by API.
+    url = 'https://twitter.com/atahuta_/status/1437431869138632705'
+    result = Panchira.fetch(url, {twitter: {bearer_token: bearer_token}})
+
+    assert_match 'atahuta', result.title
+    assert_match 'atahuta', result.author
+    assert_match 'skeb納品しました', result.description
+    assert_equal ['R18_35'], result.tags
+    assert_equal 'https://pbs.twimg.com/media/E_LInjsVcAEzhyt.jpg', result.image.url
+    assert_equal 829, result.image.width
+    assert_equal 1200, result.image.height
   end
 end
