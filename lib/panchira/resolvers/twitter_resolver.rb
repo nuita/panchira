@@ -10,6 +10,9 @@ module Panchira
       @id = @url.slice(URL_REGEXP, 2)
 
       @bearer_token = options&.dig(:twitter, :bearer_token)
+
+      @author = nil
+      @response = nil
     end
 
     def fetch
