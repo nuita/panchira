@@ -28,6 +28,14 @@ module Panchira
         "https://pixiv.net/member_illust.php?mode=medium&illust_id=#{@illust_id}"
       end
 
+      def parse_image
+        image = PanchiraImage.new
+        image.url = parse_image_url
+        image.width, image.height = FastImage.size(image.url, http_header: {'Referer' => 'https://app-api.pixiv.net/'})
+
+        image
+      end
+
       def parse_image_url
         if @fetch_raw_image_url
           return @json['body']['urls']['original']
