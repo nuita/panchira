@@ -59,5 +59,7 @@ class PixivTest < Minitest::Test
     result = Panchira.fetch(url, {pixiv: {fetch_raw_image_url: true}})
 
     assert_match 'https://i.pximg.net/img-original/img/', result.image.url
+    assert_equal 1631, result.image.width
+    assert_equal 2300, result.image.height
   end
 end
