@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 1.5.2 - 2022-03-20
 ### Fixed
-- Fixed an issue where Pixiv resolver can't retreive not-proxied image scales.
+- Fixed an issue where Pixiv resolver can't retrieve not-proxied image scales.
 
 ## 1.5.1 - 2022-03-20
 ### Added
