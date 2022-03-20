@@ -10,6 +10,8 @@ module Panchira
 
       raw_json = URI.parse("https://www.pixiv.net/ajax/illust/#{@illust_id}").read('User-Agent' => user_agent)
       @json = JSON.parse(raw_json)
+
+      @fetch_raw_image_url = options&.dig(:pixiv, :fetch_raw_image_url)
     end
 
     private
@@ -27,6 +29,10 @@ module Panchira
       end
 
       def parse_image_url
+        if @fetch_raw_image_url
+          return @json['body']['urls']['original']
+        end
+
         proxy_url = "https://pixiv.cat/#{@illust_id}.jpg"
 
         case Net::HTTP.get_response(URI.parse(proxy_url))
