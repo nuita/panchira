@@ -56,6 +56,14 @@ To use Twitter API instead of normal scraping, please set Twitter's bearer token
 > Panchira.fetch("https://twitter.com/example/status/1234567890", options: {twitter: {bearer_token: 'ABC...123'}})
 ```
 
+### About Pixiv proxy
+
+By default, Panchira returns a link to [Pixiv.cat](https://pixiv.cat/) as a image URI, but you can change this behavior by setting `fetch_raw_image_url` as an option. To access not-proxied URI, pximg.net, you have to set Referer as `https://app-api.pixiv.net/` in HTTP request header.
+
+```
+> Panchira.fetch("https://pixiv.net/artworks/12345678", options: {pixiv: {fetch_raw_image_url: true}})
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

@@ -4,10 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.5.1 - 2022-03-20
+### Added
+- Pixiv resolver can now fetch image URIs that are not proxied.
+
 ## 1.5.0 - 2022-03-01
 ### Changed
 - You can now set options in Panchira::fetch and Resolver's constructors.
-- Twitter resolvers can now fetch datas from API (requires bearer token).
+- Twitter resolver can now fetch datas from API (requires bearer token).
 - Max execution time is now set to 10 seconds.
 
 ## 1.4.0 - 2022-01-10
