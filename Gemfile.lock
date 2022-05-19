@@ -10,8 +10,10 @@ GEM
   specs:
     ast (2.4.2)
     fastimage (2.1.7)
+    mini_portile2 (2.8.0)
     minitest (5.15.0)
-    nokogiri (1.13.3-x86_64-darwin)
+    nokogiri (1.13.6)
+      mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     parallel (1.21.0)
     parser (3.1.1.0)
