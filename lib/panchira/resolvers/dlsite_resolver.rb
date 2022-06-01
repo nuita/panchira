@@ -18,6 +18,10 @@ module Panchira
         @title_md[1]
       end
 
+      def parse_description
+        super.split('「DLsite').first
+      end
+
       def parse_authors
         @page.css('table[id*="work_"] tr').each do |tr|
           next unless tr.css('th').text =~ /(作|著)者/
