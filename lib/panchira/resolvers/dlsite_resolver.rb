@@ -51,6 +51,10 @@ module Panchira
           end
         end
       end
+
+      def parse_canonical_url
+        super[/^.+\/product_id\/[^\/]+/]
+      end
   end
 
   ::Panchira::Extensions.register(Panchira::DlsiteResolver)

@@ -15,29 +15,38 @@ module Panchira
     end
 
     class FanzaBookResolver < FanzaResolver
-      URL_REGEXP = %r{book\.dmm\.co\.jp/}.freeze
+      URL_REGEXP = /book\.dmm\.co\.jp\//.freeze
 
       private
 
-        def parse_author
-          @page.css('.m-boxDetailProductInfoMainList__description__list__item > a').first&.text.to_s
+        def after_fetch
+          text = @page.css('//script[type="application/ld+json"]').first.text
+          @schema = JSON.parse(text)
+        end
+
+        def parse_title
+          @schema['name']
+        end
+
+        def parse_authors
+          @schema['subjectOf']['author']['name']
         end
 
         def parse_image_url
-          @page.css('.m-imgDetailProductPack/@src').first.to_s
+          @schema['image'].sub('ps.', 'pl.')
         end
 
         def parse_tags
-          @page.css('.m-boxDetailProductInfo__list__description__item > a').map(&:text)
+          @schema['subjectOf']['genre']
         end
 
         def parse_description
-          @page.css('.m-boxDetailProduct__info__story').first&.text.to_s.gsub(/[\n\t]/, '')
+          @schema['description']
         end
     end
 
     class FanzaDoujinResolver < FanzaResolver
-      URL_REGEXP = %r{dmm\.co\.jp/dc/doujin/}.freeze
+      URL_REGEXP = /dmm\.co\.jp\/dc\/doujin\//.freeze
 
       private
 
@@ -57,7 +66,7 @@ module Panchira
     end
 
     class FanzaVideoResolver < FanzaResolver
-      URL_REGEXP = %r{www.dmm.co.jp/digital/}.freeze
+      URL_REGEXP = /www.dmm.co.jp\/digital\//.freeze
 
       private
 

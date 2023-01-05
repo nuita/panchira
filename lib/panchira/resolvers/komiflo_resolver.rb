@@ -4,7 +4,7 @@ module Panchira
   # KomifloResolver resolves Komiflo.
   # Komiflo has its API server, so we can utilize it.
   class KomifloResolver < Resolver
-    URL_REGEXP = %r{komiflo\.com(?:/#!)?/comics/(\d+)}.freeze
+    URL_REGEXP = /komiflo\.com(?:\/#!)?\/comics\/(\d+)/.freeze
 
     def initialize(url, options = nil)
       super(url, options)
@@ -33,7 +33,7 @@ module Panchira
       end
 
       def parse_canonical_url
-        id = @url.slice(%r{komiflo\.com(?:/#!)?/comics/(\d+)}, 1)
+        id = @url.slice(/komiflo\.com(?:\/#!)?\/comics\/(\d+)/, 1)
         "https://komiflo.com/comics/#{id}"
       end
 

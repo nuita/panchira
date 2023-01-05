@@ -5,13 +5,14 @@ module Panchira
     URL_REGEXP = /(www|ecchi)\.iwara\.tv\//.freeze
 
     private
+
       def parse_title
         super.split(' | ')[0]
       end
 
       def parse_image_url
-        url = @page.at_css('#video-player')&.attributes['poster']&.value
-        'https:' + url if url
+        url = @page.at_css('#video-player')&.attributes&.fetch('poster')&.value
+        "https:#{url}" if url
       end
 
       def parse_author

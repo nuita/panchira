@@ -2,7 +2,7 @@
 
 module Panchira
   class PixivResolver < Resolver
-    URL_REGEXP = %r{pixiv\.net/.*(member_illust.php?.*illust_id=|artworks/)(\d+)}.freeze
+    URL_REGEXP = /pixiv\.net\/.*(member_illust.php?.*illust_id=|artworks\/)(\d+)/.freeze
 
     def initialize(url, options = nil)
       super(url, options)
@@ -43,7 +43,7 @@ module Panchira
 
         proxy_url = "https://pixiv.cat/#{@illust_id}.jpg"
 
-        case res = Net::HTTP.get_response(URI.parse(proxy_url))
+        case Net::HTTP.get_response(URI.parse(proxy_url))
         when Net::HTTPMovedPermanently
           # 301が返された場合、locationで渡されたURIにホストが含まれず扱いづらいため決め打ちする
           proxy_url = "https://pixiv.cat/#{@illust_id}-1.jpg"
@@ -60,7 +60,7 @@ module Panchira
   end
 
   class PixivNovelResolver < Resolver
-    URL_REGEXP = %r{pixiv\.net/novel/show.php\?id=(\d+)}.freeze
+    URL_REGEXP = /pixiv\.net\/novel\/show.php\?id=(\d+)/.freeze
 
     def initialize(url, options = nil)
       super(url, options)

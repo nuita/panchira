@@ -33,7 +33,7 @@ module Panchira
           return @page.css('//meta[property="og:image"]/@content').first.to_s
         end
 
-        if md = thumbnail_url.match(%r{pic.nijie.net/\w+(?<resolution>/\w+/)nijie.+\.(?<format>png|jpg|jpeg)})
+        if md = thumbnail_url.match(/pic.nijie.net\/\w+(?<resolution>\/\w+\/)nijie.+\.(?<format>png|jpg|jpeg)/)
           thumbnail_url.sub(md[:resolution], '/')
         else
           thumbnail_url

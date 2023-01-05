@@ -16,7 +16,7 @@ class TwitterTest < Minitest::Test
 
   # To test this case, you have to set environment variable TWITTER_BEARER_TOKEN.
   def test_fetch_twitter_from_api
-    bearer_token = ENV['TWITTER_BEARER_TOKEN']
+    bearer_token = ENV.fetch('TWITTER_BEARER_TOKEN', nil)
     return unless bearer_token
 
     # Due to sensitive settings, the content of tweet can be taken only by API.

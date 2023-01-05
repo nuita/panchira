@@ -17,15 +17,25 @@ class DLSiteTest < Minitest::Test
     assert_equal 'https://img.dlsite.jp/modpub/images2/work/doujin/RJ256000/RJ255695_img_main.jpg', result.image.url
     assert_includes result.tags, '淫語'
 
-    # Commercial commic with author and without circle.
+    # Commercial comic with author and without circle.
     url = 'https://dlsite.jp/bowot/BJ101997/?utm_content=BJ101997'
     result = Panchira.fetch(url)
 
-    assert_match '僕は管理・管理・管理されている', result.title
+    assert_equal '僕は管理・管理・管理されている', result.title
     assert_match '射精管理', result.description
-    assert_match '紅唯まと', result.author
+    assert_equal '紅唯まと', result.author
     assert_nil result.circle
     assert_includes result.tags, '男性受け'
+  end
+
+  def test_dlsite_with_other_locales
+    # Can retrieve url with other locales.
+    url = 'https://www.dlsite.com/maniax/work/=/product_id/RJ176036.html/?locale=ko_KR'
+    result = Panchira.fetch(url)
+
+    assert_equal '悪の女首領と童貞構成員', result.title
+    assert_equal 'DT工房', result.circle
+    assert_includes result.tags, '断面図'
   end
 
   def test_dlsite_with_multiple_authors

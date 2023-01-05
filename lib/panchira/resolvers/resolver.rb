@@ -26,6 +26,8 @@ module Panchira
 
       @page = fetch_page(result.canonical_url) if @url != result.canonical_url
 
+      after_fetch if respond_to?(:after_fetch, true)
+
       result.title = parse_title
       result.description = parse_description
       result.image = parse_image

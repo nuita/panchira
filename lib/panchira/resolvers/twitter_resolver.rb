@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'uri'
 
 module Panchira
   class TwitterResolver < Resolver
-    URL_REGEXP = %r{twitter.com/(\w+)/status/(\d+)}.freeze
+    URL_REGEXP = /twitter.com\/(\w+)\/status\/(\d+)/.freeze
 
     def initialize(url, options = nil)
       super(url, options)

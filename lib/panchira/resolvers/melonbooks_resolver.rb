@@ -2,7 +2,7 @@
 
 module Panchira
   class MelonbooksResolver < Resolver
-    URL_REGEXP = %r{melonbooks.co.jp/detail/detail.php\?product_id=(\d+)}.freeze
+    URL_REGEXP = /melonbooks.co.jp\/detail\/detail.php\?product_id=(\d+)/.freeze
 
     def fetch
       result = PanchiraResult.new
@@ -12,11 +12,12 @@ module Panchira
 
       @page = fetch_page(result.canonical_url) if @url != result.canonical_url
 
-      result.title, result.author, result.circle = parse_table
+      result.title = parse_title
+      result.author, result.circle = parse_table
       result.description = parse_description
       result.image = parse_image
-      result.tags = parse_tags
       result.resolver = parse_resolver
+      result.tags = parse_tags
 
       result
     end
@@ -24,12 +25,10 @@ module Panchira
     private
 
       def parse_table
-        title, author, circle = nil, nil, nil
+        author, circle = nil, nil
 
-        @page.css('#description > table.stripe > tr').each do |tr|
+        @page.css('div.table-wrapper > table > tr').each do |tr|
           case tr.css('th').text
-          when 'タイトル'
-            title = tr.css('td').text.strip
           when 'サークル名'
             circle = tr.css('td > a').text.match(/^(.+)\W\(作品数:/)&.values_at(1)&.first
           when '作家名'
@@ -37,7 +36,11 @@ module Panchira
           end
         end
 
-        [title, author, circle]
+        [author, circle]
+      end
+
+      def parse_title
+        @page.xpath('//h1[@class="page-header"]//text()').text
       end
 
       def parse_canonical_url
@@ -46,14 +49,7 @@ module Panchira
       end
 
       def parse_description
-        # スタッフの紹介文でidが分岐
-        special_description = @page.xpath('//div[@id="special_description"]//p/text()')
-        if special_description.any?
-          special_description.first.to_s
-        else
-          description = @page.xpath('//div[@id="description"]//p/text()')
-          description.first.to_s
-        end
+        @page.css('div.item-detail > div > p').first.text.strip
       end
 
       def parse_image_url
@@ -64,7 +60,7 @@ module Panchira
       end
 
       def parse_tags
-        @page.css('#related_tags .clearfix').children.children.map(&:text)
+        @page.css('div.item-detail2 > p > a').map { |m| m.text.sub('#', '') }
       end
   end
 
