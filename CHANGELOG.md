@@ -142,17 +142,3 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## 0.1.0 - 2020-05-13 [YANKED]
 ### Added
 - Released Panchira gem. At this time we can parse only 5 websites.
-
-[1.3.5]: https://github.com/nuita/panchira/releases/tag/v1.3.5
-[1.3.4]: https://github.com/nuita/panchira/releases/tag/v1.3.4
-[1.3.3]: https://github.com/nuita/panchira/releases/tag/v1.3.3
-[1.3.2]: https://github.com/nuita/panchira/releases/tag/v1.3.2
-[1.3.1]: https://github.com/nuita/panchira/releases/tag/v1.3.1
-[1.3.0]: https://github.com/nuita/panchira/releases/tag/v1.3.0
-[1.2.0]: https://github.com/nuita/panchira/releases/tag/v1.2.0
-[1.1.0]: https://github.com/nuita/panchira/releases/tag/v1.1.0
-[1.0.0]: https://github.com/nuita/panchira/releases/tag/v1.0.0
-[0.3.0]: https://github.com/nuita/panchira/releases/tag/v0.3.0
-[0.2.0]: https://github.com/nuita/panchira/releases/tag/v0.2.0
-[0.1.1]: https://github.com/nuita/panchira/releases/tag/v0.1.1
-[0.1.0]: https://github.com/nuita/panchira/releases/tag/v0.1.0
