@@ -37,6 +37,10 @@ Lint/MissingSuper:
 Lint/SymbolConversion:
   EnforcedStyle: consistent
 
+Metrics/BlockLength:
+  Exclude:
+    - panchira.gemspec
+
 Style/AsciiComments:
   Enabled: false
 
@@ -63,6 +67,9 @@ Style/NumericPredicate:
 
 Style/ParallelAssignment:
   Enabled: false
+
+Style/RegexpLiteral:
+  EnforcedStyle: slashes
 
 Style/WordArray:
   EnforcedStyle: brackets
