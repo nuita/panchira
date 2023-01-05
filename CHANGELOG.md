@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.6.0 - 2023-01-05
+### Added
+- Added support for non-Japanese DLsite URLs.
+
+### Fixed
+- Fixed an issue where FANZA resolver don't work due to renewal of the website.
+- Fixed an issue where Melonbooks resolver don't work due to renewal of the website.
+
 ## 1.5.3 - 2022-06-04
 ### Fixed
 - Fixed an issue where Pixiv resolver can't retrieve image urls for manga.
