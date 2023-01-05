@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'byebug'
-
 module Panchira
   class MelonbooksResolver < Resolver
     URL_REGEXP = %r{melonbooks.co.jp/detail/detail.php\?product_id=(\d+)}.freeze
