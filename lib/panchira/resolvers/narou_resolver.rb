@@ -5,7 +5,7 @@ require 'net/https'
 module Panchira
   module Narou
     class Novel18Resolver < Resolver
-      URL_REGEXP = %r{novel18\.syosetu\.com/}.freeze
+      URL_REGEXP = /novel18\.syosetu\.com\//.freeze
       ID_REGEXP = %{novel18\.syosetu\.com/(?<id>[^/]+)}
 
       def initialize(url, options = nil)

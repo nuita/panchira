@@ -2,7 +2,7 @@
 
 module Panchira
   class IwaraResolver < Resolver
-    URL_REGEXP = %r{(www|ecchi)\.iwara\.tv/}.freeze
+    URL_REGEXP = /(www|ecchi)\.iwara\.tv\//.freeze
 
     private
 

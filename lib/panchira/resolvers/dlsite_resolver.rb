@@ -53,7 +53,7 @@ module Panchira
       end
 
       def parse_canonical_url
-        super[%r{^.+/product_id/[^/]+}]
+        super[/^.+\/product_id\/[^\/]+/]
       end
   end
 
