@@ -14,7 +14,9 @@ class PixivTest < Minitest::Test
     assert_match 'パイングミ', result.author
     assert_equal 'https://pixiv.cat/73718144.jpg', result.image.url
     assert_includes result.tags, 'VOICEROID'
+  end
 
+  def test_fetch_pixiv_manga
     # Fetch the first page if it is manga.
     url = 'https://www.pixiv.net/member_illust.php?mode=medium&illust_id=75871400'
     result = Panchira.fetch(url)
@@ -24,7 +26,9 @@ class PixivTest < Minitest::Test
     assert_match 'かにかま', result.author
     assert_equal 'https://pixiv.cat/75871400-1.jpg', result.image.url
     assert_includes result.tags, 'DWU'
+  end
 
+  def test_fetch_pixiv_artworks
     # Look at this new url format.
     url = 'https://www.pixiv.net/artworks/55434358'
     result = Panchira.fetch(url)

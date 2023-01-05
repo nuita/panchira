@@ -43,7 +43,7 @@ module Panchira
 
         proxy_url = "https://pixiv.cat/#{@illust_id}.jpg"
 
-        case res = Net::HTTP.get_response(URI.parse(proxy_url))
+        case Net::HTTP.get_response(URI.parse(proxy_url))
         when Net::HTTPMovedPermanently
           # 301が返された場合、locationで渡されたURIにホストが含まれず扱いづらいため決め打ちする
           proxy_url = "https://pixiv.cat/#{@illust_id}-1.jpg"
