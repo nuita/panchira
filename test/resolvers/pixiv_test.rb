@@ -68,4 +68,11 @@ class PixivTest < Minitest::Test
     assert_equal 1631, result.image.width
     assert_equal 2300, result.image.height
   end
+
+  def test_fetch_ai
+    url = 'https://www.pixiv.net/artworks/104488545'
+    result = Panchira.fetch(url)
+
+    assert_equal 'AI生成', result.tags[0] # AI生成情報を元サイト通り最初の要素として取得する
+  end
 end

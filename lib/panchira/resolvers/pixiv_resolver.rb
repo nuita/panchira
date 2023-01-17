@@ -55,7 +55,14 @@ module Panchira
       end
 
       def parse_tags
-        @json['body']['tags']['tags'].map { |content| content['tag'] }
+        tags = @json['body']['tags']['tags'].map { |content| content['tag'] }
+        tags.unshift('AI生成') if parse_ai
+
+        tags
+      end
+
+      def parse_ai
+        @json['body']['aiType'] == 2
       end
   end
 
