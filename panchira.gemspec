@@ -39,7 +39,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop', '~> 1.7'
   spec.add_development_dependency 'rubocop-minitest', '~> 0.10'
 
-  spec.add_dependency 'fastimage', '~> 2.1.7'
-  spec.add_dependency 'nokogiri', '>= 1.10.9', '< 1.14.0'
+  spec.add_dependency 'fastimage', '~> 2.1'
+  spec.add_dependency 'nokogiri', '>= 1.10.9'
   spec.metadata['rubygems_mfa_required'] = 'true'
 end
